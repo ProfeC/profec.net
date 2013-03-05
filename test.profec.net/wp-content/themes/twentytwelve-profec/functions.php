@@ -34,7 +34,7 @@
 		global $wp_styles;
 	
 		// Adds Foundation based Mondernizr script
-		wp_enqueue_script('twentytwelve-modernizr', get_stylesheet_directory_uri() . '/javascripts/foundation/modernizr.foundation.js', array(), false, false );
+		wp_enqueue_script('twentytwelve-modernizr', get_stylesheet_directory_uri() . '/js/foundation/modernizr.foundation.js', array(), false, false );
 
 		/*
 		 * Unloads our main stylesheet.
@@ -45,7 +45,7 @@
 		/*
 		 * Loads the Foundation stylesheet.
 		 */
-		wp_enqueue_style( 'twentytwelve-foundation', get_stylesheet_directory_uri() . '/stylesheets/app.css' );
+		wp_enqueue_style( 'twentytwelve-foundation', get_stylesheet_directory_uri() . '/css/app.css' );
 	
 	}
 	add_action( 'wp_enqueue_scripts', 'foundation_twentytwelve_scripts_styles' );
