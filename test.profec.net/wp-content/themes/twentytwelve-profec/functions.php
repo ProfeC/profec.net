@@ -43,9 +43,10 @@
 		wp_deregister_style('twentytwelve-style');
 
 		/*
-		 * Loads the Foundation stylesheet.
+		 * Loads the Foundation stylesheets.
 		 */
-		wp_enqueue_style( 'twentytwelve-foundation', get_stylesheet_directory_uri() . '/css/app.css' );
+		wp_enqueue_style( 'twentytwelve-foundation-normalize', get_stylesheet_directory_uri() . '/css/normalize.css' );
+		wp_enqueue_style( 'twentytwelve-foundation-app', get_stylesheet_directory_uri() . '/css/app.css' );
 	
 	}
 	add_action( 'wp_enqueue_scripts', 'foundation_twentytwelve_scripts_styles' );

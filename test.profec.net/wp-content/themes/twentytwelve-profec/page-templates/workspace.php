@@ -16,18 +16,14 @@ get_header(); ?>
 
 
 <div class="row">
-  <div class="twelve columns">
+  <div class="small-12 columns">
 
   <!-- Desktop Slider -->
-
-    <div class="hide-for-small">
-      <div id="featured">
-            <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
-            <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
-            <img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image">
-        </div>
-      </div>
-
+   <ul id="featured" data-orbit>
+         <li><img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"></li>
+         <li><img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"></li>
+         <li><img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"></li>
+     </ul>
   <!-- End Desktop Slider -->
 
 
@@ -35,7 +31,7 @@ get_header(); ?>
 
 
   <div class="row">
-    <div class="mobile-four show-for-small"><br>
+    <div class="small-4 show-for-small"><br>
       <img src="http://placehold.it/1000x600&text=For Small Screens" />
     </div>
   </div>
@@ -47,7 +43,7 @@ get_header(); ?>
 </div><br>
 
 <div class="row">
-  <div class="twelve columns">
+  <div class="small-12 columns">
     <div class="row">
 
   <!-- Thumbnails -->
@@ -139,7 +135,7 @@ get_header(); ?>
 
 
 
-	<div id="primary" class="site-content">
+	<div id="primary" class="site-content small-12">
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -157,10 +153,15 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 	<?php get_footer(); ?>
-
+	
+	<?php /*
    <!-- Included JS Files -->
    <script type="text/javascript">
      $(window).load(function() {
-       $('#featured').orbit({ fluid: '2x1' });
+       $('#featured').orbit(
+			 {
+			 }
+		 );
      });
    </script>
+	*/?>

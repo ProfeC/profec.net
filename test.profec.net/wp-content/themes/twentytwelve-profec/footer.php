@@ -35,31 +35,31 @@
 		</div>
 	</footer><!-- #colophon -->
 
+<!-- Included Foundation JS Files (Uncompressed) -->
+<script>
+	document.write('<script src=' +
+	('__proto__' in {} ? '<?php echo get_stylesheet_directory_uri() ?>/js/vendor/zepto' : '<?php echo get_stylesheet_directory_uri() ?>/js/vendor/jquery') +
+	'.js><\/script>')
+</script>
 
-<!-- Included JS Files (Uncompressed) -->
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/ja/foundation/jquery.cookie.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.event.move.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.event.swipe.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.accordion.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.alerts.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.buttons.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.clearing.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.forms.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.joyride.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.magellan.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.mediaQueryToggle.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.navigation.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.orbit.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.reveal.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.tabs.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.tooltips.js"></script>	
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.foundation.topbar.js"></script>
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/jquery.placeholder.js"></script>	
-
-<!-- Application Javascript, safe to override -->
-<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/app.js"></script>
-
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.alerts.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.clearing.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.cookie.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.dropdown.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.forms.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.joyride.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.magellan.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.orbit.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.placeholder.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.reveal.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.section.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.tooltips.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri() ?>/js/foundation/foundation.topbar.js"></script>
+  
+<script>
+  $(document).foundation();
+</script>
 
 <?php wp_footer(); ?>
 
