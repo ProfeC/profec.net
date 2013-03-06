@@ -14,56 +14,105 @@
 
 get_header(); ?>
 
-
 <div class="row">
-  <div class="small-12 columns">
+  <div class="large-12 columns hide-for-small">
+		<!-- Desktop Slider -->
+	  <?php
+	  	$my_query = "showposts=5"; 
+	  	$my_query = new WP_Query($my_query);
+		
+		print_r($my_query);
+		
+		echo '<hr>';
+		
+		$sticky = get_option( 'sticky_posts' );
+		$query = new WP_Query( 'p=' . $sticky[0] );
+		print_r($query);
+		
+		echo '<hr>';
+		
+		$sticky = get_option( 'sticky_posts' );
+		$args = array(
+			'posts_per_page' => 1,
+			'post__in'  => $sticky,
+			'ignore_sticky_posts' => 1
+		);
+		$query = new WP_Query( $args );
+		if ( $sticky[0] ) {
+			// insert here your stuff...
+		}
+		
+		
+	  ?>
 
-  <!-- Desktop Slider -->
-   <ul id="featured" data-orbit>
-         <li><img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"></li>
-         <li><img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"></li>
-         <li><img src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"></li>
-     </ul>
+	  <?php if ($query->have_posts()) : ?>
+		  <ul id="featured" data-orbit>
+		  <?php while ($query->have_posts()) : ?>
+			  <?php $query->the_post(); ?>
+
+           <li id="post-<?php the_ID(); ?>">
+				  
+				  <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+					<?php
+			  	 		// show the featured image
+						the_post_thumbnail('full');
+					?>
+					</a>
+					
+				  <div class="caption">
+					  <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><small><?php the_title(); ?></small></a></h2>
+					  <p><?php the_excerpt(); ?></p>
+  					
+			  </li>	
+
+		  <?php endwhile; // end of one post ?>
+		  </ul>
+		<?php 
+			endif; //end of loop
+
+			/* Restore original Post Data 
+			 * NB: Because we are using new WP_Query we aren't stomping on the 
+			 * original $wp_query and it does not need to be reset.
+			 * http://codex.wordpress.org/Class_Reference/WP_Query
+			*/
+			wp_reset_postdata();
+		?>
   <!-- End Desktop Slider -->
 
 
   <!-- Mobile Header -->
-
-
   <div class="row">
-    <div class="small-4 show-for-small"><br>
+    <div class="small-12 show-for-small"><br>
       <img src="http://placehold.it/1000x600&text=For Small Screens" />
     </div>
   </div>
-
-
 <!-- End Mobile Header -->
 
   </div>
 </div><br>
 
 <div class="row">
-  <div class="small-12 columns">
+  <div class="large-12 columns">
     <div class="row">
 
   <!-- Thumbnails -->
 
-      <div class="three mobile-two columns">
+      <div class="large-3 small-6 columns">
         <img src="http://placehold.it/250x250&text=Thumbnail" />
         <h6 class="panel">Description</h6>
       </div>
 
-      <div class="three mobile-two columns">
+      <div class="large-3 small-6 columns">
         <img src="http://placehold.it/250x250&text=Thumbnail" />
         <h6 class="panel">Description</h6>
       </div>
 
-      <div class="three mobile-two columns">
+      <div class="large-3 small-6 columns">
         <img src="http://placehold.it/250x250&text=Thumbnail" />
         <h6 class="panel">Description</h6>
       </div>
 
-      <div class="three mobile-two columns">
+      <div class="large-3 small-6 columns">
         <img src="http://placehold.it/250x250&text=Thumbnail" />
         <h6 class="panel">Description</h6>
       </div>
@@ -74,94 +123,69 @@ get_header(); ?>
   </div>
 </div>
 
-
-
 <div class="row">
-  <div class="twelve columns">
+  <div class="large-12 columns">
     <div class="row">
 
-  <!-- Content -->
+		<!-- Content -->
 
-      <div class="eight columns">
-        <div class="panel radius">
+		<div class="large-8 columns">
+			<div class="panel radius">
+				<div class="row">
+					<div class="large-12 small-12 columns">
+			
+						<?php while ( have_posts() ) : the_post(); ?>
+							<h2 class="subheader"><?php the_title(); ?></h2>
+							<hr/>
 
-        <div class="row">
-        <div class="six mobile-two columns">
+							<div class="row">							
+							<?php if ( has_post_thumbnail() ) : ?>
+								<div class="entry-page-image small-6 large-4 columns">
+									<?php the_post_thumbnail(); ?>
+								</div><!-- .entry-page-image -->
+								<div class="small-6 large-8 columns">
+									<?php the_content(); ?>
+								</div>
+							<?php else: ?>
+								<div class="small-12 columns">
+									<?php the_content(); ?>
+								</div>
+							<?php endif; ?>
+							</div>
+			
+						<?php endwhile; // end of the loop. ?>
+			
+					</div>
+				</div>
+			</div>
+		</div>
 
-          <h4>Header</h4><hr/>
-          <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
-          </h5>
+		<div class="large-4 columns hide-for-small">
+			<h4>Get In Touch!</h4><hr/>
+        
+			<div class="panel radius callout" align="center">
+				<strong><a href="#">Call To Action!</a></strong>
+			</div>
 
-        <div class="show-for-small" align="center">
-          <a href="#" class="small radius button">Call To Action!</a><br>
+			<div class="panel radius callout" align="center">
+				<strong><a href="#">Call To Action!</a></strong>
+			</div>
+		</div>
 
-          <a href="#" class="small radius button">Call To Action!</a>
-        </div>
-
-        </div>
-        <div class="six mobile-two columns">
-
-          <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.
-        </p>
-      </div>
-
-      </div>
-      </div>
-      </div>
-
-      <div class="four columns hide-for-small">
-
-        <h4>Get In Touch!</h4><hr/>
-
-        <a href="#">
-        <div class="panel radius callout" align="center">
-          <strong>Call To Action!</strong>
-        </div>
-        </a>
-
-        <a href="#">
-        <div class="panel radius callout" align="center">
-          <strong>Call To Action!</strong>
-        </div>
-        </a>
-
-      </div>
-
-  <!-- End Content -->
+		<!-- End Content -->
 
     </div>
   </div>
 </div>
 
 
-
-	<div id="primary" class="site-content small-12">
+<div class="row">
+	<div id="primary" class="site-content small-12 columns">
 		<div id="content" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="entry-page-image">
-						<?php the_post_thumbnail(); ?>
-					</div><!-- .entry-page-image -->
-				<?php endif; ?>
-
-				<?php get_template_part( 'content', 'page' ); ?>
-
-			<?php endwhile; // end of the loop. ?>
-
+			
 		</div><!-- #content -->
 	</div><!-- #primary -->
+</div>
 
 	<?php get_footer(); ?>
-	
-	<?php /*
-   <!-- Included JS Files -->
-   <script type="text/javascript">
-     $(window).load(function() {
-       $('#featured').orbit(
-			 {
-			 }
-		 );
-     });
-   </script>
-	*/?>
