@@ -21,27 +21,27 @@ get_header(); ?>
 	  	$my_query = "showposts=5"; 
 	  	$my_query = new WP_Query($my_query);
 		
-		print_r($my_query);
+		//print_r($my_query);
 		
-		echo '<hr>';
+		//echo '<hr>';
 		
 		$sticky = get_option( 'sticky_posts' );
 		$query = new WP_Query( 'p=' . $sticky[0] );
-		print_r($query);
+		//print_r($query);
 		
-		echo '<hr>';
+		//echo '<hr>';
 		
-		$sticky = get_option( 'sticky_posts' );
-		$args = array(
+		$sticky2 = get_option( 'sticky_posts' );
+		$args2 = array(
 			'posts_per_page' => 1,
-			'post__in'  => $sticky,
+			'post__in'  => $sticky2,
 			'ignore_sticky_posts' => 1
 		);
-		$query = new WP_Query( $args );
-		if ( $sticky[0] ) {
+		$query2 = new WP_Query( $args2 );
+		if ( $sticky2[0] ) {
 			// insert here your stuff...
 		}
-		
+		//print_r($query2);
 		
 	  ?>
 
@@ -95,8 +95,8 @@ get_header(); ?>
   <div class="large-12 columns">
     <div class="row">
 
-  <!-- Thumbnails -->
-
+	  <!-- Thumbnails -->
+	  <?php // This should loop through the "x" latest non-sticky posts ?>
       <div class="large-3 small-6 columns">
         <img src="http://placehold.it/250x250&text=Thumbnail" />
         <h6 class="panel">Description</h6>
