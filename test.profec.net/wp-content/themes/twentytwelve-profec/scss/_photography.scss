@@ -56,3 +56,12 @@ footer#colophon {
         color: lighten($black, 30%);
     }
 }
+
+.orbit-container {
+	.orbit-slides-container {
+		img {
+			display: inline-block;
+			height: 469px;
+		}
+	}
+}

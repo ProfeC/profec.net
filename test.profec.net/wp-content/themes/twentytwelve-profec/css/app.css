@@ -5095,9 +5095,7 @@ table tfoot tr td {
 /* line 36, /usr/local/webapps/profec.net/test.profec.net/wp-content/themes/twentytwelve-profec/scss/_photography.scss */
 #masthead .nav-bar {
   background: #711100;
-  margin-bottom: 0;
   color: #110803;
-  font-weight: 500;
 }
 /* line 43, /usr/local/webapps/profec.net/test.profec.net/wp-content/themes/twentytwelve-profec/scss/_photography.scss */
 #masthead .contain-to-grid {
@@ -5115,4 +5113,10 @@ footer#colophon {
 /* line 55, /usr/local/webapps/profec.net/test.profec.net/wp-content/themes/twentytwelve-profec/scss/_photography.scss */
 footer#colophon h1, footer#colophon h2, footer#colophon h3, footer#colophon h4, footer#colophon h5, footer#colophon h6, footer#colophon a, footer#colophon p {
   color: #4d4d4d;
+}
+
+/* line 62, /usr/local/webapps/profec.net/test.profec.net/wp-content/themes/twentytwelve-profec/scss/_photography.scss */
+.orbit-container .orbit-slides-container img {
+  display: inline-block;
+  height: 469px;
 }

@@ -18,57 +18,72 @@ get_header(); ?>
   <div class="large-12 columns hide-for-small">
 		<!-- Desktop Slider -->
 	  <?php
-	  	$my_query = "showposts=5"; 
-	  	$my_query = new WP_Query($my_query);
-		
-		//print_r($my_query);
-		
-		//echo '<hr>';
-		
+		/*	TODO: Loop over the sticky posts and display the first few image attachments in an Orbit slider. 
+		*	If there are no stickies don't show anything.
+		*/
 		$sticky = get_option( 'sticky_posts' );
-		$query = new WP_Query( 'p=' . $sticky[0] );
-		//print_r($query);
-		
-		//echo '<hr>';
-		
-		$sticky2 = get_option( 'sticky_posts' );
-		$args2 = array(
+		$stickyArgs = array(
 			'posts_per_page' => 1,
-			'post__in'  => $sticky2,
+			'post__in'  => $sticky,
 			'ignore_sticky_posts' => 1
 		);
-		$query2 = new WP_Query( $args2 );
-		if ( $sticky2[0] ) {
-			// insert here your stuff...
-		}
-		//print_r($query2);
 		
-	  ?>
+		$stickyQuery = new WP_Query( $stickyArgs );
+		echo '<!-- ';
+		print_r($stickyQuery);
+		echo ' -->';
 
-	  <?php if ($query->have_posts()) : ?>
-		  <ul id="featured" data-orbit>
-		  <?php while ($query->have_posts()) : ?>
-			  <?php $query->the_post(); ?>
+	  if ( $sticky[0] ){
+		  if ($stickyQuery->have_posts() ) : while ( $stickyQuery->have_posts() ) : $stickyQuery->the_post();
+			  
+			  // TODO: set variables for the parent post info so that they could be used in the caption
+			  /* 
+			  myPostID => $stickyQuery->the_post()->ID;
+			  myPostPermaLink => '';
+			  myPostTitle => '';
+			  myPostExcerpt => '';
+			  */
+			  
+				// Get the attachments
+				$attachmentArgs = array(
+					'post_type'   => 'attachment'
+					, 'numberposts' => 5
+					, 'post_status' => null
+					, 'post_parent' => $post->ID
+					, 'exclude'		=> get_post_thumbnail_id($post->ID)
+					//, 'orderby' => 'rand'
+				);
+				
+				echo '<!-- ';
+				print_r($attachmentArgs);
+				echo '-->';
+				
+				$attachments = get_posts( $attachmentArgs );
+				echo '<!-- ';
+				print_r($attachments);
+				echo ' -->';
+				
+				if ( $attachments ) {
 
-           <li id="post-<?php the_ID(); ?>">
-				  
-				  <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-					<?php
-			  	 		// show the featured image
-						the_post_thumbnail('full');
-					?>
-					</a>
+					echo '<ul id="featured" data-orbit>';
 					
-				  <div class="caption">
-					  <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><small><?php the_title(); ?></small></a></h2>
-					  <p><?php the_excerpt(); ?></p>
-  					
-			  </li>	
-
-		  <?php endwhile; // end of one post ?>
-		  </ul>
-		<?php 
-			endif; //end of loop
+					foreach ( $attachments as $attachment ) {
+						//echo apply_filters( 'the_title', $attachment->post_title );
+						//the_attachment_link( $attachment->ID, false );
+						
+						echo '<li id="post-' . $attachment->ID .'">' . wp_get_attachment_image( $attachment->ID, 'full' );
+						
+						//echo '<li id="post-' . $attachment->ID .'"><a href="' . the_permalink() .'" rel="bookmark" title="Permanent Link to ' . the_title_attribute() . '">' . wp_get_attachment_image( $attachment->ID, 'full' ) . '</a>';
+						
+						// '<div class="orbit-caption"><h2><a href="' . the_permalink() . '" rel="bookmark" title="Permanent Link to ' . the_title_attribute() . '"><small>' . the_title() . '</small></a></h2><p>' . the_excerpt() . '</p></div>';
+						echo '</li>';
+					}
+				}
+				
+				echo '</ul>';
+				
+			endwhile; endif; //end of loop
+		}
 
 			/* Restore original Post Data 
 			 * NB: Because we are using new WP_Query we aren't stomping on the 
@@ -116,6 +131,32 @@ get_header(); ?>
         <img src="http://placehold.it/250x250&text=Thumbnail" />
         <h6 class="panel">Description</h6>
       </div>
+		
+		
+		<?php
+		$latestPostslist = query_posts(
+			array(
+				'post__not_in' => get_option( 'sticky_posts' )
+			)
+		);
+		echo '<!-- Latest Post List Data ';
+		print_r($latestPostslist);
+		echo ' -->';
+		
+		foreach ($latestPostslist as $latestPost) :  setup_postdata($latestPost);
+		
+		echo '<!-- Latest Post Data ' . $latestPost -> ID;
+		print_r($latestPost);
+		echo ' -->';
+		?>
+			<div>
+				<?php the_date(); ?>
+				<br />
+				<?php the_title(); ?>   
+				<?php the_excerpt(); ?>
+			</div>
+		
+		<?php endforeach; ?>
 
   <!-- End Thumbnails -->
 
@@ -133,7 +174,8 @@ get_header(); ?>
 			<div class="panel radius">
 				<div class="row">
 					<div class="large-12 small-12 columns">
-			
+						
+						<!-- TODO: Get page content back here -->
 						<?php while ( have_posts() ) : the_post(); ?>
 							<h2 class="subheader"><?php the_title(); ?></h2>
 							<hr/>
