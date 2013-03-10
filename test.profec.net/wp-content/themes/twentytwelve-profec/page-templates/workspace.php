@@ -90,7 +90,7 @@ get_header(); ?>
 			 * original $wp_query and it does not need to be reset.
 			 * http://codex.wordpress.org/Class_Reference/WP_Query
 			*/
-			wp_reset_postdata();
+			//wp_reset_postdata();
 		?>
   <!-- End Desktop Slider -->
 
@@ -110,59 +110,37 @@ get_header(); ?>
   <div class="large-12 columns">
     <div class="row">
 
-	  <!-- Thumbnails -->
-	  <?php // This should loop through the "x" latest non-sticky posts ?>
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/250x250&text=Thumbnail" />
-        <h6 class="panel">Description</h6>
-      </div>
-
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/250x250&text=Thumbnail" />
-        <h6 class="panel">Description</h6>
-      </div>
-
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/250x250&text=Thumbnail" />
-        <h6 class="panel">Description</h6>
-      </div>
-
-      <div class="large-3 small-6 columns">
-        <img src="http://placehold.it/250x250&text=Thumbnail" />
-        <h6 class="panel">Description</h6>
-      </div>
-		
-		
+		<!-- Thumbnails -->		
 		<?php
-		$latestPostslist = query_posts(
-			array(
-				'post__not_in' => get_option( 'sticky_posts' )
-			)
-		);
-		echo '<!-- Latest Post List Data ';
-		print_r($latestPostslist);
-		echo ' -->';
+			$latestPostslist = query_posts(
+				array(
+					'post__not_in' => get_option( 'sticky_posts' )
+				)
+			);
+			echo '<!-- Latest Post List Data ';
+			print_r($latestPostslist);
+			echo ' -->';
 		
-		foreach ($latestPostslist as $latestPost) :  setup_postdata($latestPost);
+			foreach ($latestPostslist as $latestPost) :  setup_postdata($latestPost);
 		
-		echo '<!-- Latest Post Data ' . $latestPost -> ID;
-		print_r($latestPost);
-		echo ' -->';
+				echo '<!-- Latest Post Data ' . $latestPost -> ID;
+				print_r($latestPost);
+				echo ' -->';
+				
+				echo '<div class="large-3 small-6 columns">';
+					echo '<img src="http://placehold.it/250x250&text=Thumbnail" />';
+		       	echo '<h6 class="panel">' . $latestPost->post_title . '</h6>';
+		      echo '</div>';
+				
+				//echo '<div>' . the_date() . '<br />' . the_title() . the_excerpt() . '</div>';
+		
+			endforeach;
 		?>
-			<div>
-				<?php the_date(); ?>
-				<br />
-				<?php the_title(); ?>   
-				<?php the_excerpt(); ?>
-			</div>
-		
-		<?php endforeach; ?>
-
-  <!-- End Thumbnails -->
 
     </div>
   </div>
 </div>
+			
 
 <div class="row">
   <div class="large-12 columns">
@@ -174,12 +152,23 @@ get_header(); ?>
 			<div class="panel radius">
 				<div class="row">
 					<div class="large-12 small-12 columns">
+						<h2 class="subheader"><?php page_title(); ?></h2>
+						<hr/>
+
 						
 						<!-- TODO: Get page content back here -->
-						<?php while ( have_posts() ) : the_post(); ?>
-							<h2 class="subheader"><?php the_title(); ?></h2>
-							<hr/>
 
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php 
+								the_content();
+								
+								get_template_part( 'content', 'page' );
+							?>
+							<?php comments_template( '', true ); ?>
+						<?php endwhile; // end of the loop. ?>
+						
+						
+						<?php /*while ( have_posts() ) : the_post(); ?>
 							<div class="row">							
 							<?php if ( has_post_thumbnail() ) : ?>
 								<div class="entry-page-image small-6 large-4 columns">
@@ -195,7 +184,7 @@ get_header(); ?>
 							<?php endif; ?>
 							</div>
 			
-						<?php endwhile; // end of the loop. ?>
+						<?php endwhile;*/ // end of the loop. ?>
 			
 					</div>
 				</div>

@@ -11,29 +11,24 @@
  */
 ?>
 
-	<footer id="colophon" role="contentinfo">
-		<div class="row">
-	      <div class="twelve columns">
-	        <hr />
-	        <div class="row">
-	          <div class="six columns">
-	            <p>&copy; Copyright no one at all. Go to town.</p>
-					<p><?php do_action( 'twentytwelve_credits' ); ?>
-					<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a></p>
-	          </div>
-			 
-	          <div class="six columns">
-	            <ul class="inline-list right">
-	              <li><a href="#">Link 1</a></li>
-	              <li><a href="#">Link 2</a></li>
-	              <li><a href="#">Link 3</a></li>
-	              <li><a href="#">Link 4</a></li>
-	            </ul>
-	          </div>
-	        </div>
-	      </div>
+<footer id="colophon" role="contentinfo">
+	<div class="row">
+		<div class="small-6 columns">
+			<p>&copy; Copyright no one at all. Go to town.</p>
+			<p><?php do_action( 'twentytwelve_credits' ); ?>
+			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a></p>
 		</div>
-	</footer><!-- #colophon -->
+			 
+		<div class="small-6 columns">
+			<ul class="inline-list right">
+				<li><a href="#">Link 1</a></li>
+				<li><a href="#">Link 2</a></li>
+				<li><a href="#">Link 3</a></li>
+				<li><a href="#">Link 4</a></li>
+			</ul>
+		</div>
+	</div>
+</footer><!-- #colophon -->
 
 <!-- Included Foundation JS Files (Uncompressed) -->
 <script>

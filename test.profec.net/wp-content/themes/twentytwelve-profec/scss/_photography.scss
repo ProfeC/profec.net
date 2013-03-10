@@ -16,16 +16,16 @@ $orange: #e26700;
 $pinks: #fbdbc0;
 $maroon: #110803;
 $bodyColor: #c7c0a9;
-$mainColor: #711100;
-$mainColor2: lighten($mainColor, 67%); // used in the footer
-$mainColor3: darken($bodyColor, 0.25%); // used for panels and some callouts
-$secondaryColor: darken($mainColor, 30%);
+$primary-color: #711100;
+$primary-color2: lighten($primary-color, 13%); // used in the footer
+$primary-color3: darken($bodyColor, 0.25%); // used for panels and some callouts
+$secondaryColor: darken($primary-color, 30%);
 $topbar-bg: #311208;
 $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
 
 #masthead {
-    background: $mainColor url("#{$imageDirectory}/headerBG.jpg") repeat center top;
-    border-bottom: 3px solid $mainColor;
+    background: $primary-color url("#{$imageDirectory}/headerBG.jpg") repeat center top;
+    border-bottom: 3px solid $primary-color;
     color: $white;
 	 margin-bottom: 13px;
     
@@ -34,7 +34,7 @@ $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
     }
         
     .nav-bar {
-        background: $mainColor;
+        background: $primary-color;
         //margin-bottom: 0;
         color: $maroon;
         //font-weight: 500;
@@ -45,23 +45,24 @@ $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
     }
 }
 
-footer#colophon {
-    height: 100px;
-    background: $mainColor2;
-    border-top: 1px solid $darkEdge;
-    color: lighten($black, 30%);
-    padding-top: 25px;
-    
-    h1, h2, h3, h4, h5, h6, a, p {
-        color: lighten($black, 30%);
-    }
+footer{
+	background: $lightGrey;
+	border-top: 1px solid $darkEdge;
+	color: lighten($black, 30%);
+	padding-top: 25px;
+
+	#colophon {    
+		h1, h2, h3, h4, h5, h6, a, p {
+			color: lighten($black, 30%);
+		}
+	}
 }
 
 .orbit-container {
 	.orbit-slides-container {
 		img {
 			display: inline-block;
-			height: 469px;
+			//height: 469px;
 		}
 	}
 }
