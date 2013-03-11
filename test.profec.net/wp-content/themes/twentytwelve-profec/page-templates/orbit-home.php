@@ -17,10 +17,6 @@ get_header(); ?>
 <div class="row">
 <div class="large-12 columns">
 <?php
-/*	TODO: Loop over the sticky posts and display the first few image attachments in an Orbit slider. 
-*	If there are no stickies don't show anything.
-*/
-
 $sticky = get_option( 'sticky_posts' );
 $stickyArgs = array(
 'posts_per_page' => 1,
@@ -29,15 +25,12 @@ $stickyArgs = array(
 );
 		
 $stickyQuery = new WP_Query( $stickyArgs );
-echo '<!-- ';
-print_r($stickyQuery);
-echo ' -->';
 
 if ( $sticky[0] ){
 if ($stickyQuery->have_posts() ) : while ( $stickyQuery->have_posts() ) : $stickyQuery->the_post();
-			  
-// TODO: set variables for the parent post info so that they could be used in the caption
-/* 
+		  
+/*
+TODO: set variables for the parent post info so that they could be used in the caption 
 myPostID => $stickyQuery->the_post()->ID;
 myPostPermaLink => '';
 myPostTitle => '';
@@ -53,15 +46,8 @@ $attachmentArgs = array(
 , 'exclude'		=> get_post_thumbnail_id($post->ID)
 //, 'orderby' => 'rand'
 );
-				
-echo '<!-- ';
-print_r($attachmentArgs);
-echo '-->';
-				
+
 $attachments = get_posts( $attachmentArgs );
-echo '<!-- ';
-print_r($attachments);
-echo ' -->';
 				
 if ( $attachments ) {
 
@@ -71,12 +57,12 @@ foreach ( $attachments as $attachment ) {
 //echo apply_filters( 'the_title', $attachment->post_title );
 //the_attachment_link( $attachment->ID, false );
 						
-echo '<li id="post-' . $attachment->ID .'">' . wp_get_attachment_image( $attachment->ID, 'full' );
+echo '<li id="post-' . $attachment->ID .'"><a href="' . the_permalink() .'">' . wp_get_attachment_image( $attachment->ID, 'full' );
 						
 //echo '<li id="post-' . $attachment->ID .'"><a href="' . the_permalink() .'" rel="bookmark" title="Permanent Link to ' . the_title_attribute() . '">' . wp_get_attachment_image( $attachment->ID, 'full' ) . '</a>';
 						
 // '<div class="orbit-caption"><h2><a href="' . the_permalink() . '" rel="bookmark" title="Permanent Link to ' . the_title_attribute() . '"><small>' . the_title() . '</small></a></h2><p>' . the_excerpt() . '</p></div>';
-echo '</li>';
+echo '</a></li>';
 }
 }
 				
@@ -96,62 +82,8 @@ endwhile; endif; //end of loop
 </div>
 </div>
 
-<?php
-// Get the latest "non-sticky" posts
-// TODO: determine the number of posts to show from the admin and change the number of columns accordingly. (i.e.: if there are 5 post to be displayed, then the row should be divided into x # of columns.
-// The block-grid can be used for this.
-	
-global $post;
-	
-$args = array(
-	'post__not_in' => get_option( 'sticky_posts' )
-		,'numberposts' => 5
-);
-		
-$latestPostslist = get_posts( $args );
-/*
-echo '<code class="language-php"><pre>';
-var_dump($latestPostslist);
-echo '</pre></code>';
-*/
-?>
 
-<!-- Three-up Content Blocks -->
-<div class="row">
-	<div class="small-12 columns">
-		<h2>Latest Posts</h2>
-		<ul class="small-block-grid-<?php echo count($latestPostslist); ?>">
-
-	<?php
-	foreach ($latestPostslist as $post) : setup_postdata($post);
-	?>
-	
-	<li><a class="th radius shadow" href="<?php the_permalink(); ?>">
-		<?php
-			// check if the post has a Post Thumbnail assigned to it.
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
-			} else {
-				echo '<img src="http://placehold.it/400x300&text=Image+Missing" />';
-			}
-		?>
-		</a>
-		<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-		<p><?php the_excerpt(); ?></p> 
-		<?php /*
-			echo '<code class="language-php"><pre>';
-			var_dump($post);
-			echo '</pre></code>';
-		*/ ?>
-	</li>
-		   
-	<?php
-		endforeach;
-		wp_reset_postdata();
-	?>
-		</ul>
-	</div>
-</div>
+<?php include get_stylesheet_directory() . '/inc/latest-posts.php'; ?>
     
 <!-- Call to Action Panel -->
 <div class="row">
