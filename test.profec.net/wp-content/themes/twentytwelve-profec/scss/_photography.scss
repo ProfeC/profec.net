@@ -60,9 +60,10 @@ footer{
 
 .orbit-container {
 	.orbit-slides-container {
+		height: 640px !important;
+		
 		img {
 			display: inline-block;
-			//height: 469px;
 		}
 	}
 }

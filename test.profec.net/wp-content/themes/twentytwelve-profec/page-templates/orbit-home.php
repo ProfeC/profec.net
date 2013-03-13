@@ -17,71 +17,53 @@ get_header(); ?>
 <div class="row">
 <div class="large-12 columns">
 <?php
-$sticky = get_option( 'sticky_posts' );
-$stickyArgs = array(
-'posts_per_page' => 1,
-'post__in'  => $sticky,
-'ignore_sticky_posts' => 1
+// Get the most recent featured post so that we can show a few attachments (images) from it.
+global $post;
+$page_post = $post; // make sure we keep the original post data here!
+
+$args = array(
+	'posts_per_page' => 1
+	, 'post__in'  => get_option( 'sticky_posts' )
+	, 'ignore_sticky_posts' => 1
 );
 		
-$stickyQuery = new WP_Query( $stickyArgs );
+$stickyPost = get_posts( $args );
 
-if ( $sticky[0] ){
-if ($stickyQuery->have_posts() ) : while ( $stickyQuery->have_posts() ) : $stickyQuery->the_post();
-		  
-/*
-TODO: set variables for the parent post info so that they could be used in the caption 
-myPostID => $stickyQuery->the_post()->ID;
-myPostPermaLink => '';
-myPostTitle => '';
-myPostExcerpt => '';
-*/
-			  
-// Get the attachments
-$attachmentArgs = array(
-'post_type'   => 'attachment'
-, 'numberposts' => 5
-, 'post_status' => null
-, 'post_parent' => $post->ID
-, 'exclude'		=> get_post_thumbnail_id($post->ID)
-//, 'orderby' => 'rand'
-);
+foreach ( $stickyPost as $post ) : setup_postdata( $post );
+	
+	// Get the attachments for the current sticky post
+	$args = array(
+		'post_type' => 'attachment'
+		, 'post_mime_type' => 'image'
+		, 'numberposts' => 5
+		, 'post_status' =>'any'
+		, 'post_parent' => $post->ID
+		, 'exclude'		=> get_post_thumbnail_id($post->ID)
+	); 
+	
+	$attachments = get_posts($args);
+	
+	if ($attachments) { ?>
+		<ul id="featured" data-orbit>
+			<?php foreach ( $attachments as $attachment ) { ?>
+			<li id="post-<?php $attachment->ID; ?>">
+				<a href="<?php the_permalink(); ?>"><?php echo wp_get_attachment_image( $attachment->ID, array(970,650) ); ?></a>
+				<div class="orbit-caption"><h2><small><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to "<?php the_title(); ?>><?php the_title() ?></a></small></h2><?php the_excerpt() ?></div>
+			</li>
+			
+			<?php
+			//echo apply_filters( 'the_title' , $attachment->post_title );
+			//the_attachment_link( $attachment->ID , false );
+		}
+	}
+	
+endforeach;
+wp_reset_postdata();
 
-$attachments = get_posts( $attachmentArgs );
-				
-if ( $attachments ) {
-
-echo '<ul id="featured" data-orbit>';
-					
-foreach ( $attachments as $attachment ) {
-//echo apply_filters( 'the_title', $attachment->post_title );
-//the_attachment_link( $attachment->ID, false );
-						
-echo '<li id="post-' . $attachment->ID .'"><a href="' . the_permalink() .'">' . wp_get_attachment_image( $attachment->ID, 'full' );
-						
-//echo '<li id="post-' . $attachment->ID .'"><a href="' . the_permalink() .'" rel="bookmark" title="Permanent Link to ' . the_title_attribute() . '">' . wp_get_attachment_image( $attachment->ID, 'full' ) . '</a>';
-						
-// '<div class="orbit-caption"><h2><a href="' . the_permalink() . '" rel="bookmark" title="Permanent Link to ' . the_title_attribute() . '"><small>' . the_title() . '</small></a></h2><p>' . the_excerpt() . '</p></div>';
-echo '</a></li>';
-}
-}
-				
-echo '</ul>';
-				
-endwhile; endif; //end of loop
-}
-
-/* Restore original Post Data 
-* NB: Because we are using new WP_Query we aren't stomping on the 
-* original $wp_query and it does not need to be reset.
-* http://codex.wordpress.org/Class_Reference/WP_Query
-*/
-//wp_reset_postdata();
 ?>
 <!-- End Desktop Slider -->
 </div>
 </div>
-
 
 <?php include get_stylesheet_directory() . '/inc/latest-posts.php'; ?>
     
