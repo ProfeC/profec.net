@@ -66,26 +66,39 @@ wp_reset_postdata();
 </div>
 
 <?php include get_stylesheet_directory() . '/inc/latest-posts.php'; ?>
-    
-<!-- Call to Action Panel -->
+
+<?php while ( have_posts() ) : the_post(); ?>
 <div class="row">
-<div class="large-12 columns">
-    
-<div class="panel">
-<h4>Get in touch!</h4>
-            
-<div class="row">
-<div class="large-9 columns">
-<p>We'd love to hear from you, you attractive person you.</p>
+	<div class="large-12 columns">    
+		<div id="pageContent" class="panel">
+			<div class="row">
+
+				<?php // check if the post has a Post Thumbnail assigned to it.
+				if ( has_post_thumbnail() ) { ?>
+				<div class="large-9 columns">
+					<h3><?php the_title(); ?></h3>
+					<?php the_content(); ?>
+				</div>
+				<div class="large-3 columns">
+					<?php the_post_thumbnail(
+						'medium'
+						, array(
+							'class' => "attachment-medium featured"
+						)
+					); ?>
+				</div>
+				<?php } else { ?>
+					<div class="large-12 columns">
+						<h3><?php the_title(); ?></h3>
+						<?php the_content(); ?>
+					</div>
+
+				<?php } ?>
+			</div>
+		</div>
+	</div>
 </div>
-<div class="large-3 columns">
-<a href="#" class="radius button right">Contact Us</a>
-</div>
-</div>
-</div>
-      
-</div>
-</div>
+<?php endwhile; // end of the loop. ?>
 
 <!-- Footer -->
 <?php get_footer(); ?>

@@ -14,18 +14,12 @@
 <footer id="colophon" role="contentinfo">
 	<div class="row">
 		<div class="small-6 columns">
-			<p>&copy; Copyright no one at all. Go to town.</p>
-			<p><?php do_action( 'twentytwelve_credits' ); ?>
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a></p>
+			<p>Site Content &copy; 2000 - <?php echo date("Y"); ?> Gary L. Clark, II <small>(aka: ProfeC)</small></p>
 		</div>
-			 
-		<div class="small-6 columns">
-			<ul class="inline-list right">
-				<li><a href="#">Link 1</a></li>
-				<li><a href="#">Link 2</a></li>
-				<li><a href="#">Link 3</a></li>
-				<li><a href="#">Link 4</a></li>
-			</ul>
+		
+		<div class="small-6 columns text-right">
+			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a> and <a href="<?php echo esc_url( __( 'http://foundation.zurb.com', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'The most advanced responsive
+front-end framework in the world.', 'twentytwelve' ); ?>">Zurb Foundation</a></p>
 		</div>
 	</div>
 </footer><!-- #colophon -->

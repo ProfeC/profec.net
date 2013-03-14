@@ -1,4 +1,10 @@
 <?php
+	// Add extra post formats.
+	add_action( 'after_setup_theme', 'childtheme_formats', 11 );
+	function childtheme_formats(){
+	     add_theme_support( 'post-formats', array( 'gallery', 'aside', 'image', 'link', 'quote', 'status' ) );
+	}
+
 	// De-register parent styles and scripts that aren't needed, thanks to Foundation
 	add_action( 'wp_print_styles', 'mytheme_deregister_styles', 100 );
 	function mytheme_deregister_styles() {

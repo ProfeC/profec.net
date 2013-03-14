@@ -10,9 +10,11 @@
 get_header(); ?>
 
 <div id="primary" class="site-content row">
-	<div id="content" class="nine columns" role="main">
+	<div id="content" class="large-9 columns" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
+
+			<?php echo '<h1>' . get_post_format() . '</h1>'; ?>
 
 			<?php get_template_part( 'content', get_post_format() ); ?>
 
@@ -27,7 +29,7 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 	</div><!-- #content -->
 
-	<div class="three columns">
+	<div class="large-3 columns">
 		<?php get_sidebar(); ?>
 	</div>
 

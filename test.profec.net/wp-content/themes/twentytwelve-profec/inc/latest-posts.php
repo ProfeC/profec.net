@@ -11,33 +11,26 @@ $args = array(
 );
 		
 $latestPostslist = get_posts( $args );
-/*
-echo '<code class="language-php"><pre>';
-var_dump($latestPostslist);
-echo '</pre></code>';
-*/
 ?>
 
 <!-- Three-up Content Blocks -->
 <div class="row">
 	<div class="small-12 columns">
 		<h2>Latest Posts</h2>
-		<ul class="small-block-grid-<?php echo count($latestPostslist); ?>">
+		<ul class="large-block-grid-<?php echo count($latestPostslist); ?>">
 
 	<?php
 	foreach ($latestPostslist as $post) : setup_postdata($post);
 	?>
 	
-	<li><a class="th radius shadow" href="<?php the_permalink(); ?>">
-		<?php
+	<li><a class="th" href="<?php the_permalink(); ?>"><?php
 			// check if the post has a Post Thumbnail assigned to it.
 			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
+				the_post_thumbnail( 'medium' );
 			} else {
 				echo '<img src="http://placehold.it/400x300&text=Image+Missing" />';
 			}
-		?>
-		</a>
+		?></a>
 		<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 		<p><?php the_excerpt(); ?></p> 
 		<?php /*

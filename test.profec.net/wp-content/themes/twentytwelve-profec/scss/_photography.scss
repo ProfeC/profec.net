@@ -67,3 +67,18 @@ footer{
 		}
 	}
 }
+
+li {
+	a.th {
+		img {
+			margin-bottom: -5px;
+		}
+	}
+}
+
+#pageContent {
+	img.featured {
+		//border: 5px solid $white;
+		@include thumb(5px);
+	}
+}
