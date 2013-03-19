@@ -82,3 +82,9 @@ li {
 		@include thumb(5px);
 	}
 }
+
+.format-gallery {
+	.gallery {
+		background-color: red;
+	}
+}

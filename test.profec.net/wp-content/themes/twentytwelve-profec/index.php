@@ -23,7 +23,23 @@ get_header(); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
+				<?php // get_template_part( 'content', get_post_format() ); ?>
+				
+				<?php 
+					if (!get_post_format()){
+						get_template_part( 'content');
+					} else {
+						get_template_part( 'content', get_post_format() );
+					}
+				?>
+			
+			
+				
+				
+				
+				
+				
+				
 			<?php endwhile; ?>
 
 			<?php twentytwelve_content_nav( 'nav-below' ); ?>

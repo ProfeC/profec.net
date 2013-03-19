@@ -22,6 +22,9 @@
 		wp_dequeue_style( 'twentytwelve-fonts' );
 	}
 	
+	// Remove default styling for Media Gallery
+	add_filter( 'use_default_gallery_style', '__return_false' );
+	
 	// Unregister primary nav so it can be renamed and used
 	unregister_nav_menu('primary');
 	
