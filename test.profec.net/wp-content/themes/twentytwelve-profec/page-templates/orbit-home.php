@@ -15,7 +15,7 @@
 get_header(); ?>
 
 <div class="row">
-<div class="large-12 columns">
+<div class="large-12 columns site-content">
 <?php
 // Get the most recent featured post so that we can show a few attachments (images) from it.
 global $post;
@@ -69,7 +69,7 @@ wp_reset_postdata();
 
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="row">
-	<div class="large-12 columns">    
+	<div class="large-12 columns site-content">    
 		<div id="pageContent" class="panel">
 			<div class="row">
 

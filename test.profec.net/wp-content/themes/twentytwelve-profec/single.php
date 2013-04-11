@@ -8,29 +8,29 @@
  */
 
 get_header(); ?>
+<div class="row">
+	<div id="primary" class="site-content">
+		<div id="content" class="small-9 columns" role="main">
 
-<div id="primary" class="site-content row">
-	<div id="content" class="large-9 columns" role="main">
+			<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
 
-			<?php get_template_part( 'content', get_post_format() ); ?>
+				<nav class="nav-single">
+					<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
+					<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
+					<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
+				</nav><!-- .nav-single -->
 
-			<nav class="nav-single">
-				<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentytwelve' ); ?></h3>
-				<span class="nav-previous"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'twentytwelve' ) . '</span> %title' ); ?></span>
-				<span class="nav-next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'twentytwelve' ) . '</span>' ); ?></span>
-			</nav><!-- .nav-single -->
+				<?php comments_template( '', true ); ?>
 
-			<?php comments_template( '', true ); ?>
+			<?php endwhile; // end of the loop. ?>
+		</div><!-- #content -->
 
-		<?php endwhile; // end of the loop. ?>
-	</div><!-- #content -->
+		<div class="small-3 columns">
+			<?php get_sidebar(); ?>
+		</div>
 
-	<div class="large-3 columns">
-		<?php get_sidebar(); ?>
-	</div>
-
-</div><!-- #primary -->
-	
+	</div><!-- #primary -->
+</div>	
 <?php get_footer(); ?>

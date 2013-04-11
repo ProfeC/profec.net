@@ -27,7 +27,7 @@ $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
     background: $primary-color url("#{$imageDirectory}/headerBG.jpg") repeat center top;
     border-bottom: 3px solid $primary-color;
     color: $white;
-	 margin-bottom: 13px;
+	 height:$topbar-height + 50px;
     
     h1, h2, h3, h4, h5, h6, a, p {
         color:$white;
@@ -50,6 +50,16 @@ footer{
 	border-top: 1px solid $darkEdge;
 	color: lighten($black, 30%);
 	padding-top: 25px;
+	
+	&.entry-meta {
+		padding: 0 13px;
+		background: none;
+		border: none;
+		
+		.vcard {
+			margin:0;
+		}
+	}
 
 	#colophon {    
 		h1, h2, h3, h4, h5, h6, a, p {
@@ -76,15 +86,21 @@ li {
 	}
 }
 
-#pageContent {
-	img.featured {
-		//border: 5px solid $white;
-		@include thumb(5px);
-	}
-}
+.site-content {
+	background-color: $white;
+	padding-top: 13px;
+	// margin-bottom: 13px;
 
-.format-gallery {
-	.gallery {
-		background-color: red;
+	#pageContent {
+		img.featured {
+			//border: 5px solid $white;
+			@include thumb(5px);
+		}
+	}
+
+	#content {
+		header {
+			margin-bottom: 25px;
+		}
 	}
 }

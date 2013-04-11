@@ -22,9 +22,6 @@
 		wp_dequeue_style( 'twentytwelve-fonts' );
 	}
 	
-	// Remove default styling for Media Gallery
-	add_filter( 'use_default_gallery_style', '__return_false' );
-	
 	// Unregister primary nav so it can be renamed and used
 	unregister_nav_menu('primary');
 	
@@ -59,5 +56,38 @@
 	
 	}
 	add_action( 'wp_enqueue_scripts', 'foundation_twentytwelve_scripts_styles' );
+	
+	// Modify the Media Gallery to use Foundation's Clearing JS
+	add_filter( 'use_default_gallery_style', '__return_false' ); // remove inline styles
+	add_filter('img_caption_shortcode', 'my_img_caption_shortcode_filter',10,3);
+
+	/**
+	 * Filter to replace the [caption] shortcode text with HTML5 compliant code
+	 *
+	 * @return text HTML content describing embedded figure
+	 **/
+	function my_img_caption_shortcode_filter($val, $attr, $content = null)
+	{
+		extract(shortcode_atts(array(
+			'id'	=> '',
+			'align'	=> '',
+			'width'	=> '',
+			'caption' => ''
+		), $attr));
+	
+		if ( 1 > (int) $width || empty($caption) )
+			return $val;
+
+		$capid = '';
+		if ( $id ) {
+			$id = esc_attr($id);
+			$capid = 'id="figcaption_'. $id . '" ';
+			$id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+		}
+
+		return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: '
+		. (10 + (int) $width) . 'px">' . do_shortcode( $content ) . '<figcaption ' . $capid 
+		. 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
+	}
 
 ?>

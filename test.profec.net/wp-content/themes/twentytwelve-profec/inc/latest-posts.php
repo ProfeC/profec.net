@@ -15,7 +15,7 @@ $latestPostslist = get_posts( $args );
 
 <!-- Three-up Content Blocks -->
 <div class="row">
-	<div class="small-12 columns">
+	<div class="small-12 columns site-content">
 		<h2>Latest Posts</h2>
 		<ul class="large-block-grid-<?php echo count($latestPostslist); ?>">
 

@@ -16,8 +16,9 @@
 
 get_header(); ?>
 
-			<div id="main" class="wrapper row">
-	<div id="primary" class="site-content nine columns">
+	<div id="main" class="wrapper row">
+		<div class="site-content">
+	<div id="primary" class="small-9 columns">
 		<div id="content" role="main">
 		<?php if ( have_posts() ) : ?>
 
@@ -32,13 +33,6 @@ get_header(); ?>
 						get_template_part( 'content', get_post_format() );
 					}
 				?>
-			
-			
-				
-				
-				
-				
-				
 				
 			<?php endwhile; ?>
 
@@ -79,10 +73,10 @@ get_header(); ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
 	
-	<div class="three columns">
+	<div class="small-3 columns">
 <?php get_sidebar(); ?>
 	</div>
-
+</div><!-- .site-content -->
 	</div><!-- #main .wrapper -->
 	
 <?php get_footer(); ?>
