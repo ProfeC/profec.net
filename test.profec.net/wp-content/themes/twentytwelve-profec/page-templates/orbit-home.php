@@ -70,7 +70,7 @@ wp_reset_postdata();
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="row">
 	<div class="large-12 columns site-content">    
-		<div id="pageContent" class="panel">
+		<div class="panel">
 			<div class="row">
 
 				<?php // check if the post has a Post Thumbnail assigned to it.

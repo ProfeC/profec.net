@@ -5576,51 +5576,55 @@ footer {
 }
 /* line 54, ../scss/_photography.scss */
 footer.entry-meta {
-  padding: 0 13px;
   background: none;
   border: none;
 }
-/* line 59, ../scss/_photography.scss */
+/* line 58, ../scss/_photography.scss */
+footer.entry-meta .panel {
+  padding: .75em;
+}
+/* line 62, ../scss/_photography.scss */
 footer.entry-meta .vcard {
   margin: 0;
 }
-/* line 65, ../scss/_photography.scss */
+/* line 68, ../scss/_photography.scss */
 footer #colophon h1, footer #colophon h2, footer #colophon h3, footer #colophon h4, footer #colophon h5, footer #colophon h6, footer #colophon a, footer #colophon p {
   color: #4d4d4d;
 }
 
-/* line 72, ../scss/_photography.scss */
+/* line 75, ../scss/_photography.scss */
 .orbit-container .orbit-slides-container {
   height: 640px !important;
 }
-/* line 75, ../scss/_photography.scss */
+/* line 78, ../scss/_photography.scss */
 .orbit-container .orbit-slides-container img {
   display: inline-block;
 }
 
-/* line 83, ../scss/_photography.scss */
+/* line 86, ../scss/_photography.scss */
 li a.th img {
   margin-bottom: -5px;
 }
 
-/* line 89, ../scss/_photography.scss */
+/* line 92, ../scss/_photography.scss */
 .site-content {
   background-color: #fdfef7;
   padding-top: 13px;
+  height: auto;
 }
-/* line 95, ../scss/_photography.scss */
-.site-content #pageContent img.featured {
+/* line 98, ../scss/_photography.scss */
+.site-content img.featured {
   display: inline-block;
   border: solid 5px white;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 /* line 28, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/zurb-foundation-4.1.1/scss/foundation/components/_thumbs.scss */
-.site-content #pageContent img.featured:hover, .site-content #pageContent img.featured:focus {
+.site-content img.featured:hover, .site-content img.featured:focus {
   -webkit-box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
   box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
 }
-/* line 102, ../scss/_photography.scss */
+/* line 104, ../scss/_photography.scss */
 .site-content #content header {
   margin-bottom: 25px;
 }

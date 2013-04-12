@@ -52,9 +52,12 @@ footer{
 	padding-top: 25px;
 	
 	&.entry-meta {
-		padding: 0 13px;
 		background: none;
 		border: none;
+		
+		.panel {
+			padding: .75em;
+		}
 		
 		.vcard {
 			margin:0;
@@ -90,12 +93,11 @@ li {
 	background-color: $white;
 	padding-top: 13px;
 	// margin-bottom: 13px;
+	height: auto;
 
-	#pageContent {
-		img.featured {
-			//border: 5px solid $white;
-			@include thumb(5px);
-		}
+	img.featured {
+		//border: 5px solid $white;
+		@include thumb(5px);
 	}
 
 	#content {

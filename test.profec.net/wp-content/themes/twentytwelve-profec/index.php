@@ -16,10 +16,8 @@
 
 get_header(); ?>
 
-	<div id="main" class="wrapper row">
-		<div class="site-content">
-	<div id="primary" class="small-9 columns">
-		<div id="content" role="main">
+	<div id="main" class="row site-content">
+		<div id="content" class="small-9 columns" role="main">
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -71,12 +69,10 @@ get_header(); ?>
 		<?php endif; // end have_posts() check ?>
 
 		</div><!-- #content -->
-	</div><!-- #primary -->
 	
-	<div class="small-3 columns">
-<?php get_sidebar(); ?>
-	</div>
-</div><!-- .site-content -->
+		<div class="small-3 columns">
+	<?php get_sidebar(); ?>
+		</div>
 	</div><!-- #main .wrapper -->
 	
 <?php get_footer(); ?>
