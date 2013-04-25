@@ -6,7 +6,8 @@ $bodyFontFamily: quote($bodyFamily), sans-serif;
 $imageDirectory: unquote("/wp-content/themes/twentytwelve-profec/images");
 
 // Colors Settings ===> http://www.colorhexa.com/711100
-$white: #fdfef7;
+//$white: #fdfef7;
+$white: #fff;
 $black: #000; // this is no longer valid and should be removed.
 $grey: #c7c0a9;
 $lightGrey: #f2f2f2;
@@ -24,7 +25,8 @@ $topbar-bg: #311208;
 $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
 
 #masthead {
-    background: $primary-color url("#{$imageDirectory}/headerBG.jpg") repeat center top;
+    background-color: $primary-color;
+	 // background-image: url("#{$imageDirectory}/headerBG.jpg") repeat center top;
     border-bottom: 3px solid $primary-color;
     color: $white;
 	 height:$topbar-height + 50px;
@@ -45,6 +47,46 @@ $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
     }
 }
 
+
+
+.site-content {
+	background-color: $white;
+	padding-top: 13px;
+	// margin-bottom: 13px;
+	height: auto;
+
+	img.featured {
+		//border: 5px solid $white;
+		@include thumb(5px);
+	}
+
+	#content {
+		header {
+			margin-bottom: 25px;
+		}
+		
+		article {
+			footer {
+				line-height: $paragraph-aside-line-height / 2;
+				padding-top: 13px;
+				font-size: emCalc($em-base - 3);
+				
+				.panel {
+					padding: unquote(($paragraph-aside-line-height / 2) + "em");
+				}
+			}
+		}
+	}
+}
+
+li {
+	a.th {
+		img {
+			margin-bottom: -5px;
+		}
+	}
+}
+
 footer{
 	background: $lightGrey;
 	border-top: 1px solid $darkEdge;
@@ -61,6 +103,7 @@ footer{
 		
 		.vcard {
 			margin:0;
+			padding:3px;
 		}
 	}
 
@@ -77,32 +120,6 @@ footer{
 		
 		img {
 			display: inline-block;
-		}
-	}
-}
-
-li {
-	a.th {
-		img {
-			margin-bottom: -5px;
-		}
-	}
-}
-
-.site-content {
-	background-color: $white;
-	padding-top: 13px;
-	// margin-bottom: 13px;
-	height: auto;
-
-	img.featured {
-		//border: 5px solid $white;
-		@include thumb(5px);
-	}
-
-	#content {
-		header {
-			margin-bottom: 25px;
 		}
 	}
 }

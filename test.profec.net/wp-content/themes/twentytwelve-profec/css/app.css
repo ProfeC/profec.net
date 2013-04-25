@@ -5546,73 +5546,34 @@ table tfoot tr td {
   max-width: 800px;
 }
 
-/* line 26, ../scss/_photography.scss */
+/* line 27, ../scss/_photography.scss */
 #masthead {
-  background: #711100 url("/wp-content/themes/twentytwelve-profec/images/headerBG.jpg") repeat center top;
+  background-color: #711100;
   border-bottom: 3px solid #711100;
-  color: #fdfef7;
+  color: white;
   height: 95px;
 }
-/* line 32, ../scss/_photography.scss */
+/* line 34, ../scss/_photography.scss */
 #masthead h1, #masthead h2, #masthead h3, #masthead h4, #masthead h5, #masthead h6, #masthead a, #masthead p {
-  color: #fdfef7;
+  color: white;
 }
-/* line 36, ../scss/_photography.scss */
+/* line 38, ../scss/_photography.scss */
 #masthead .nav-bar {
   background: #711100;
   color: #110803;
 }
-/* line 43, ../scss/_photography.scss */
+/* line 45, ../scss/_photography.scss */
 #masthead .contain-to-grid {
   box-shadow: 5px 5px 13px 1px rgba(14, 10, 8, 0.69);
 }
 
-/* line 48, ../scss/_photography.scss */
-footer {
-  background: #f2f2f2;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  color: #4d4d4d;
-  padding-top: 25px;
-}
-/* line 54, ../scss/_photography.scss */
-footer.entry-meta {
-  background: none;
-  border: none;
-}
-/* line 58, ../scss/_photography.scss */
-footer.entry-meta .panel {
-  padding: .75em;
-}
-/* line 62, ../scss/_photography.scss */
-footer.entry-meta .vcard {
-  margin: 0;
-}
-/* line 68, ../scss/_photography.scss */
-footer #colophon h1, footer #colophon h2, footer #colophon h3, footer #colophon h4, footer #colophon h5, footer #colophon h6, footer #colophon a, footer #colophon p {
-  color: #4d4d4d;
-}
-
-/* line 75, ../scss/_photography.scss */
-.orbit-container .orbit-slides-container {
-  height: 640px !important;
-}
-/* line 78, ../scss/_photography.scss */
-.orbit-container .orbit-slides-container img {
-  display: inline-block;
-}
-
-/* line 86, ../scss/_photography.scss */
-li a.th img {
-  margin-bottom: -5px;
-}
-
-/* line 92, ../scss/_photography.scss */
+/* line 52, ../scss/_photography.scss */
 .site-content {
-  background-color: #fdfef7;
+  background-color: white;
   padding-top: 13px;
   height: auto;
 }
-/* line 98, ../scss/_photography.scss */
+/* line 58, ../scss/_photography.scss */
 .site-content img.featured {
   display: inline-block;
   border: solid 5px white;
@@ -5624,7 +5585,57 @@ li a.th img {
   -webkit-box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
   box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
 }
-/* line 104, ../scss/_photography.scss */
+/* line 64, ../scss/_photography.scss */
 .site-content #content header {
   margin-bottom: 25px;
+}
+/* line 69, ../scss/_photography.scss */
+.site-content #content article footer {
+  line-height: 0.675;
+  padding-top: 13px;
+  font-size: 0.8125em;
+}
+/* line 74, ../scss/_photography.scss */
+.site-content #content article footer .panel {
+  padding: 0.675em;
+}
+
+/* line 84, ../scss/_photography.scss */
+li a.th img {
+  margin-bottom: -5px;
+}
+
+/* line 90, ../scss/_photography.scss */
+footer {
+  background: #f2f2f2;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  color: #4d4d4d;
+  padding-top: 25px;
+}
+/* line 96, ../scss/_photography.scss */
+footer.entry-meta {
+  background: none;
+  border: none;
+}
+/* line 100, ../scss/_photography.scss */
+footer.entry-meta .panel {
+  padding: .75em;
+}
+/* line 104, ../scss/_photography.scss */
+footer.entry-meta .vcard {
+  margin: 0;
+  padding: 3px;
+}
+/* line 111, ../scss/_photography.scss */
+footer #colophon h1, footer #colophon h2, footer #colophon h3, footer #colophon h4, footer #colophon h5, footer #colophon h6, footer #colophon a, footer #colophon p {
+  color: #4d4d4d;
+}
+
+/* line 118, ../scss/_photography.scss */
+.orbit-container .orbit-slides-container {
+  height: 640px !important;
+}
+/* line 121, ../scss/_photography.scss */
+.orbit-container .orbit-slides-container img {
+  display: inline-block;
 }

@@ -1,9 +1,9 @@
 <?php
 	// Add extra post formats.
-	add_action( 'after_setup_theme', 'childtheme_formats', 11 );
+	/*add_action( 'after_setup_theme', 'childtheme_formats', 11 );
 	function childtheme_formats(){
 	     add_theme_support( 'post-formats', array( 'gallery', 'aside', 'image', 'link', 'quote', 'status' ) );
-	}
+	}*/
 
 	// De-register parent styles and scripts that aren't needed, thanks to Foundation
 	add_action( 'wp_print_styles', 'mytheme_deregister_styles', 100 );
@@ -34,6 +34,55 @@
 			  , 'primary' => __('Foundation Nav Bar', 'foundation-twentytwelve')
 		 )
 	 );
+	 
+	// Register additional widget areas.
+	register_sidebar(
+		array(
+			'name' => __( 'Primary Footer Area', 'foundation-twentytwelve' ),
+			'id' => 'footer-1',
+			'description' => __( 'Appears in the first column of the footer', 'foundation-twentytwelve' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name' => __( 'Secondary Footer Area', 'foundation-twentytwelve' ),
+			'id' => 'footer-2',
+			'description' => __( 'Appears in the second column of the footer', 'foundation-twentytwelve' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name' => __( 'Tertiary Footer Area', 'foundation-twentytwelve' ),
+			'id' => 'footer-3',
+			'description' => __( 'Appears in the third column of the footer', 'foundation-twentytwelve' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name' => __( 'Quaternary Footer Area', 'foundation-twentytwelve' ),
+			'id' => 'footer-4',
+			'description' => __( 'Appears in the fourth column of the footer', 'foundation-twentytwelve' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
 	
 	// Add Foundation specific styles and scripts
 	function foundation_twentytwelve_scripts_styles() {
@@ -89,5 +138,40 @@
 		. (10 + (int) $width) . 'px">' . do_shortcode( $content ) . '<figcaption ' . $capid 
 		. 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
 	}
+
+	/*
+	class foundation_sideNav extends Walker {
+
+		// Set the properties of the element which give the ID of the current item and its parent
+		var $db_fields = array( 'parent' => 'parent_id', 'id' => 'object_id' );
+
+		// Displays start of a level. E.g '<ul>'
+		// @see Walker::start_lvl()
+		function start_lvl(&$output, $depth=0, $args=array()) {
+			$output .= "\n<ul class=\"side-nav\">\n";
+		}
+
+		// Displays end of a level. E.g '</ul>'
+		// @see Walker::end_lvl()
+		function end_lvl(&$output, $depth=0, $args=array()) {
+			$output .= "</ul>\n";
+		}
+
+		// Displays start of an element. E.g '<li> Item Name'
+		// @see Walker::start_el()
+		function start_el(&$output, $item, $depth=0, $args=array()) {
+			$output .= "<li>".esc_attr($item->label);
+		}
+
+		// Displays end of an element. E.g '</li>'
+		// @see Walker::end_el()
+		function end_el(&$output, $item, $depth=0, $args=array()) {
+			$output .= "</li>\n";
+		}
+	}
+	
+	$elements = array(); // Array of elements
+	echo foundation_sideNav::walk($elements);
+	*/
 
 ?>

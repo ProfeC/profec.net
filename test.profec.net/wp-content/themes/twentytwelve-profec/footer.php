@@ -13,6 +13,30 @@
 
 <footer id="colophon" role="contentinfo">
 	<div class="row">
+		<div class="small-3 columns" style="border:1px dotted red">
+			<?php dynamic_sidebar( 'footer-1' ); ?>
+		</div>
+		<div class="small-3 columns" style="border:1px dotted red">
+			<?php dynamic_sidebar( 'footer-2' ); ?>
+			<?php 
+				wp_list_categories(
+					array(
+						'show_count' => 1
+						//, 'walker' = 'foundation-sidenav'
+					)
+				);
+			?> 
+		</div>
+		<div class="small-3 columns" style="border:1px dotted red">
+			<?php dynamic_sidebar( 'footer-3' ); ?>
+		</div>
+		<div class="small-3 columns" style="border:1px dotted red">
+			<?php dynamic_sidebar( 'footer-4' ); ?>
+		</div>
+	</div>
+	
+	<br /><br />
+	<div class="row">
 		<div class="small-6 columns">
 			<p>Site Content &copy; 2000 - <?php echo date("Y"); ?> Gary L. Clark, II <small>(aka: ProfeC)</small></p>
 		</div>
