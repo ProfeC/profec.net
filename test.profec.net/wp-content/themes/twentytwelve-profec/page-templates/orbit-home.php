@@ -65,7 +65,7 @@ wp_reset_postdata();
 </div>
 </div>
 
-<?php include get_stylesheet_directory() . '/inc/latest-posts.php'; ?>
+<?php include site_url() . get_stylesheet_directory() . '/inc/latest-posts.php?orbit=1'; ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="row">

@@ -4,13 +4,29 @@
 // The block-grid can be used for this.
 	
 global $post;
-	
+
+echo '<code class="language-php"><pre>';
+print_r($_GET['orbit']);
+echo '</pre></code>';
+
+/*
+if(){
+    
+} else {
+    
+}
+*/
+
 $args = array(
-	'post__not_in' => get_option( 'sticky_posts' )
-		,'numberposts' => 5
+    'post__not_in' => get_option( 'sticky_posts' )
+    ,'numberposts' => 5
 );
 		
 $latestPostslist = get_posts( $args );
+
+echo '<code class="language-php"><pre>';
+print_r($latestPostslist);
+echo '</pre></code>';
 ?>
 
 <!-- Three-up Content Blocks -->
@@ -32,7 +48,7 @@ $latestPostslist = get_posts( $args );
 			}
 		?></a>
 		<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-		<p><?php the_excerpt(); ?></p> 
+		<?php the_excerpt(); ?>
 		<?php /*
 			echo '<code class="language-php"><pre>';
 			var_dump($post);

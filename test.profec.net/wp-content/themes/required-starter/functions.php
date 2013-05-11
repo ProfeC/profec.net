@@ -20,6 +20,7 @@ function required_starter_themesetup() {
 }
 add_action( 'after_setup_theme', 'required_starter_themesetup' );
 
+
 /**
  * With the following function you can disable theme features
  * used by the parent theme without breaking anything. Read the
@@ -38,14 +39,9 @@ function required_starter_after_parent_theme_setup() {
 	 * I'm not sure if it's a bug in WordPress or my
 	 * bad I'll leave it here: http://wordpress.org/support/topic/undefined-index-custom_image_header-in-after_setup_theme-of-child-theme
 	 */
-	if ( ! isset( $GLOBALS['custom_image_header'] ) )
-		$GLOBALS['custom_image_header'] = array();
 
 	if ( ! isset( $GLOBALS['custom_background'] ) )
 		$GLOBALS['custom_background'] = array();
-
-	// Remove custom header support: http://codex.wordpress.org/Custom_Headers
-	//remove_theme_support( 'custom-header' );
 
 	// Remove support for post formats: http://codex.wordpress.org/Post_Formats
 	//remove_theme_support( 'post-formats' );
@@ -81,33 +77,19 @@ function required_starter_scripts() {
 	 * it's empty by default.
 	 */
 	wp_enqueue_script(
-		'child-theme-js',
+		'child-theme',
 		get_stylesheet_directory_uri() . '/javascripts/child-theme.js',
-		array( 'theme-js' ),
+		array( 'theme' ),
 		required_get_theme_version( false ),
 		true
 	);
-
-	/**
-	 * Registers the app.css
-	 *
-	 * If you don't need it, remove it.
-	 * The file is empty by default.
-	 */
-	wp_register_style(
-        'app-css', //handle
-        get_stylesheet_directory_uri() . '/stylesheets/app.css',
-        array( 'foundation-css' ),	// needs foundation
-        required_get_theme_version( false ) //version
-  	);
-  	wp_enqueue_style( 'app-css' );
-
 	/**
 	 * Adding google fonts
 	 *
 	 * This is the proper code to add google fonts
 	 * as seen in TwentyTwelve
 	 */
+	/*
 	$protocol = is_ssl() ? 'https' : 'http';
 	$query_args = array( 'family' => 'Open+Sans:300,600' );
 	wp_enqueue_style(
@@ -116,6 +98,7 @@ function required_starter_scripts() {
 		array(),
 		null
 	);
+	*/
 }
 add_action('wp_enqueue_scripts', 'required_starter_scripts');
 
@@ -135,17 +118,16 @@ function required_continue_reading_link() {
 /**
  * Overwrite the defaults of the Orbit shortcode script
  *
- * Accepts all the parameters from http://foundation.zurb.com/docs/orbit.php#optCode
+ * Accepts all the parameters from http://foundation.zurb.com/docs/components/orbit.html
  * to customize the options for the orbit shortcode plugin.
  *
  * @param  array $args default args
  * @return array       your args
  */
-function required_obrit_script_args( $defaults ) {
+function required_orbit_script_args( $defaults ) {
 	$args = array(
-		'animation' 	=> 'fade',
-		'advanceSpeed' 	=> 8000,
+		'timer_speed' 	=> 8000,
 	);
 	return wp_parse_args( $args, $defaults );
 }
-add_filter( 'req_obrit_script_args', 'required_obrit_script_args' );
+add_filter( 'req_orbit_script_args', 'required_orbit_script_args' );

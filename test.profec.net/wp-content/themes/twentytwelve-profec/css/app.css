@@ -5612,30 +5612,43 @@ footer {
   color: #4d4d4d;
   padding-top: 25px;
 }
-/* line 96, ../scss/_photography.scss */
+/* line 98, ../scss/_photography.scss */
+footer aside ul li {
+  list-style-type: none;
+}
+/* line 103, ../scss/_photography.scss */
+footer aside table #wp-calendar {
+  max-width: 100%;
+  height: auto;
+}
+/* line 108, ../scss/_photography.scss */
+footer aside .widget {
+  padding: 13px;
+}
+/* line 113, ../scss/_photography.scss */
 footer.entry-meta {
   background: none;
   border: none;
 }
-/* line 100, ../scss/_photography.scss */
+/* line 117, ../scss/_photography.scss */
 footer.entry-meta .panel {
   padding: .75em;
 }
-/* line 104, ../scss/_photography.scss */
+/* line 121, ../scss/_photography.scss */
 footer.entry-meta .vcard {
   margin: 0;
   padding: 3px;
 }
-/* line 111, ../scss/_photography.scss */
+/* line 128, ../scss/_photography.scss */
 footer #colophon h1, footer #colophon h2, footer #colophon h3, footer #colophon h4, footer #colophon h5, footer #colophon h6, footer #colophon a, footer #colophon p {
   color: #4d4d4d;
 }
 
-/* line 118, ../scss/_photography.scss */
+/* line 135, ../scss/_photography.scss */
 .orbit-container .orbit-slides-container {
   height: 640px !important;
 }
-/* line 121, ../scss/_photography.scss */
+/* line 138, ../scss/_photography.scss */
 .orbit-container .orbit-slides-container img {
   display: inline-block;
 }

@@ -9,7 +9,7 @@
 
 get_header(); ?>
 <div class="row site-content">
-	<div id="content" class="small-9 columns" role="main">
+	<div id="content" class="small-12 columns" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -35,8 +35,5 @@ get_header(); ?>
 		<?php endwhile; // end of the loop. ?>
 	</div><!-- #content -->
 
-	<div class="small-3 columns">
-		<?php get_sidebar(); ?>
-	</div>
 </div>	
 <?php get_footer(); ?>

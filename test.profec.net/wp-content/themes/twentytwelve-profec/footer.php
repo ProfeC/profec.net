@@ -13,24 +13,16 @@
 
 <footer id="colophon" role="contentinfo">
 	<div class="row">
-		<div class="small-3 columns" style="border:1px dotted red">
+		<div class="small-3 columns">
 			<?php dynamic_sidebar( 'footer-1' ); ?>
 		</div>
-		<div class="small-3 columns" style="border:1px dotted red">
+		<div class="small-3 columns">
 			<?php dynamic_sidebar( 'footer-2' ); ?>
-			<?php 
-				wp_list_categories(
-					array(
-						'show_count' => 1
-						//, 'walker' = 'foundation-sidenav'
-					)
-				);
-			?> 
 		</div>
-		<div class="small-3 columns" style="border:1px dotted red">
+		<div class="small-3 columns">
 			<?php dynamic_sidebar( 'footer-3' ); ?>
 		</div>
-		<div class="small-3 columns" style="border:1px dotted red">
+		<div class="small-3 columns">
 			<?php dynamic_sidebar( 'footer-4' ); ?>
 		</div>
 	</div>

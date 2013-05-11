@@ -3,12 +3,12 @@
  * Plugin Name: r+ Tooltip Shortcode
  * Plugin URI: http://themes.required.ch/
  * Description: A [tooltip] shortcode plugin for the required+ Foundation parent theme and child themes, see <a href="http://foundation.zurb.com/docs/elements.php#tipsEx">Foundation Docs</a> for more info.
- * Version: 0.1.1
+ * Version: 1.1.0-wip
  * Author: required+ Team
  * Author URI: http://required.ch
  *
  * @package   required+ Foundation
- * @version   0.1.1
+ * @version   1.1.0-wip
  * @author    Silvan Hagen <silvan@required.ch>
  * @copyright Copyright (c) 2012, Silvan Hagen
  * @link      http://themes.required.ch/theme-features/shortcodes/
@@ -62,8 +62,8 @@ class REQ_Tooltip {
         if( !is_admin() && is_admin_bar_showing() ) {
             remove_action( 'wp_head', '_admin_bar_bump_cb' );
             $output  = '<style type="text/css">'."\n\t";
-            //$output .= 'body.admin-bar { padding-top: 28px; }'."\n";
-            $output .= 'body.admin-bar .top-bar { margin-top: 28px; }'."\n";
+            $output .= 'body.admin-bar { padding-top: 28px; }'."\n";
+            //$output .= 'body.admin-bar .top-bar { margin-top: 28px; }'."\n";
             $output .= '</style>'."\n";
             echo $output;
         }
@@ -152,7 +152,7 @@ class REQ_Tooltip {
         }
 
         /* Create our output */
-        $output = '<span class="' . $tooltip_class . '"' . $title . $width . '>' . apply_filters('req_tooltip_content', $content ) . '</span>';
+        $output = '<span data-tooltip class="' . $tooltip_class . '"' . $title . $width . '>' . apply_filters('req_tooltip_content', $content ) . '</span>';
 
         /* Return the output of the tooltip. */
         return apply_filters( 'req_tooltips', $output );

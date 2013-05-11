@@ -92,6 +92,23 @@ footer{
 	border-top: 1px solid $darkEdge;
 	color: lighten($black, 30%);
 	padding-top: 25px;
+    
+    aside {
+        ul {
+            li {
+                list-style-type: none;
+            }
+        }
+        
+        table #wp-calendar{
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .widget {
+            padding: 13px;
+        }
+    }
 	
 	&.entry-meta {
 		background: none;

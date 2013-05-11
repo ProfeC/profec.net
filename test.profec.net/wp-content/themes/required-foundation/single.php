@@ -16,7 +16,7 @@ get_header(); ?>
 	<!-- Row for main content area -->
 	<div id="content" class="row">
 
-		<div id="main" class="eight columns" role="main">
+		<div id="main" class="large-8 columns" role="main">
 
 			<div class="post-box">
 
@@ -24,7 +24,7 @@ get_header(); ?>
 
 					<?php get_template_part( 'content', get_post_format() ); ?>
 
-					<?php required_single_content_nav( 'nav-below' ); ?>
+					<?php required_single_content_nav(); ?>
 
 					<?php comments_template( '', true ); ?>
 
@@ -34,7 +34,7 @@ get_header(); ?>
 
 		</div><!-- /#main -->
 
-		<aside id="sidebar" class="four columns" role="complementary">
+		<aside id="sidebar" class="large-4 columns" role="complementary">
 
 			<div class="sidebar-box">
 

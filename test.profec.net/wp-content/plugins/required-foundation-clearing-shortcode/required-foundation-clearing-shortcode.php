@@ -3,12 +3,12 @@
  * Plugin Name: r+ Clearing Shortcode
  * Plugin URI: http://themes.required.ch/
  * Description: A [clearing] shortcode plugin for the required+ Foundation parent theme and child themes.
- * Version: 0.1.1
+ * Version: 1.1.0-wip
  * Author: required+ Team
  * Author URI: http://required.ch
  *
  * @package   required+ Foundation
- * @version   0.1.1
+ * @version   1.1.0-wip
  * @author    Silvan Hagen <silvan@required.ch>
  * @copyright Copyright (c) 2012, Silvan Hagen
  * @link      http://themes.required.ch/theme-features/shortcodes/
@@ -133,20 +133,20 @@ class REQ_Clearing {
                 $column_classes = '';
                 break;
             case 2:
-                $column_classes = 'block-grid two-up mobile-two-up';
+                $column_classes = 'large-block-grid-2 small-block-grid-2';
                 break;
             case 4:
-                $column_classes = 'block-grid four-up mobile-two-up';
+                $column_classes = 'large-block-grid-4 small-block-grid-2';
                 break;
             case 5:
-                $column_classes = 'block-grid five-up mobile-two-up';
+                $column_classes = 'large-block-grid-5 small-block-grid-2';
                 break;
             case 6:
-                $column_classes = 'block-grid six-up mobile-two-up';
+                $column_classes = 'large-block-grid-6 small-block-grid-3';
                 break;
             case 3:
             default:
-                $column_classes = 'block-grid three-up mobile-two-up';
+                $column_classes = 'large-block-grid-3 small-block-grid-2';
                 break;
         }
 
@@ -154,12 +154,11 @@ class REQ_Clearing {
         $featured = intval( $featured );
         if ( $featured != '' ) {
             $column_classes = '';
-            $fearued_class = ' has-featured';
             $size = 'large';
         }
 
         /* Let the magic happen */
-        $output = '<div class="req-clearing-container"><ul class="' . $column_classes . $fearued_class . '" data-clearing>';
+        $output = '<ul class="clearing-thumbs ' . $column_classes .'" data-clearing>';
 
         foreach ( $attachments as $id => $attachment ) {
 
@@ -185,7 +184,7 @@ class REQ_Clearing {
             $output .= '<li' . $item_classes . '><a href="' . esc_url( $img_src_full[0] ) . '"><img src="' . esc_url( $img_src[0] ) . '"' . $caption . ' /></a></li>';
         }
 
-        $output .= '</ul></div>';
+        $output .= '</ul>';
 
         /* Return the output of the column. */
         return apply_filters( 'req_clearing', $output );

@@ -3,12 +3,12 @@
  * Plugin Name: r+ Alert-Box Shortcode
  * Plugin URI: http://themes.required.ch/
  * Description: An [alert] shortcode plugin for the required+ Foundation parent theme and child themes, see <a href="http://foundation.zurb.com/docs/elements.php">Foundation Docs</a> for more info.
- * Version: 0.1.1
+ * Version: 1.1.0-wip
  * Author: required+ Team
  * Author URI: http://required.ch
  *
  * @package   required+ Foundation
- * @version   0.1.1
+ * @version   1.1.0-wip
  * @author    Silvan Hagen <silvan@required.ch>
  * @copyright Copyright (c) 2012, Silvan Hagen
  * @link      http://themes.required.ch/theme-features/shortcodes/
@@ -91,7 +91,8 @@ class REQ_Alertbox {
 
         /* Check for a custom timeout */
         if ( !empty( $attr['timeout'] ) ) {
-            $timeout = ' data-alert-timeout="' . esc_attr( $attr['timeout'] ) . '"';
+            $timeout = ' data-req-timeout="' . esc_attr( $attr['timeout'] ) . '"';
+            $closebutton = '';
         }
 
         /* Check if the close button is not desired */
@@ -105,7 +106,7 @@ class REQ_Alertbox {
         }
 
         /* Create our output */
-        $output = '<div class="alert-box' . $type . '"' . $timeout . '>' . apply_filters('req_alertbox_content', $content ) . $closebutton . '</div>';
+        $output = '<div data-alert class="alert-box' . $type . '"' . $timeout . '>' . apply_filters('req_alertbox_content', $content ) . $closebutton . '</div>';
 
         /* Return the output of the column. */
         return apply_filters( 'req_alertbox', $output );

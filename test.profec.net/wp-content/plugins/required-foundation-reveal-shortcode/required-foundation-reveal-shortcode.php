@@ -3,12 +3,12 @@
  * Plugin Name: r+ Reveal Shortcode
  * Plugin URI: http://themes.required.ch/
  * Description: A [reveal] shortcode plugin for the required+ Foundation parent theme and child themes, read the manual to get more info.
- * Version: 0.1.1
+ * Version: 1.1.0-wip
  * Author: required+ Team
  * Author URI: http://required.ch
  *
  * @package   required+ Foundation
- * @version   0.1.1
+ * @version   1.1.0-wip
  * @author    Silvan Hagen <silvan@required.ch>
  * @copyright Copyright (c) 2012, Silvan Hagen
  * @link      http://themes.required.ch/theme-features/shortcodes/
