@@ -1,4 +1,11 @@
 
 .DS_Store
 
+# Ignore SASS Cache Files
 test.profec.net/wp-content/themes/twentytwelve-profec/.sass-cache
+
+# Ignore Wordpress Core Files
+test.profec.net/wp-admin
+test.profec.net/wp-includes
+test.profec.net/wp-*.php
+test.profec.net/readme.html
