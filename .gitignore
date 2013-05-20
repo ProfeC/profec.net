@@ -2,7 +2,7 @@
 .DS_Store
 
 # Ignore SASS Cache Files
-test.profec.net/wp-content/themes/twentytwelve-profec/.sass-cache
+*/.sass-cache
 
 # Ignore Wordpress Core Files
 test.profec.net/wp-admin

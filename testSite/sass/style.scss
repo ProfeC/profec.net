@@ -1,0 +1,307 @@
+/* Welcome and glad you are using Reverie.
+ * This is the main stylesheet loaded by default.
+ * Edit the file and have fun.
+ * http://themefortress.com/reverie */
+
+// Import Compass
+@import "compass";
+
+// Global Foundation Settings
+@import "settings";
+
+// import normalize, stay at top
+@import "normalize";
+
+// Import Custom Fonts and set defaults
+@import "fonts";
+
+$header-font-family: quote($headerFamily), sans-serif;
+$body-font-family: quote($bodyFamily), sans-serif;
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+$imageDirectory: unquote('/wp-content/themes/twentytwelve-profec/images');
+
+// Colors Settings ===> http://www.colorhexa.com/711100
+//$white: #fdfef7;
+$white: #fff;
+$black: #000; // this is no longer valid and should be removed.
+$grey: #c7c0a9;
+$lightGrey: #f2f2f2;
+$lightBrown: #a2632e;
+$darkBrown: #883e00;
+$orange: #e26700;
+$pinks: #fbdbc0;
+$maroon: #110803;
+$bodyColor: #c7c0a9;
+$primary-color: #711100;
+$primary-color2: lighten($primary-color, 13%); // used in the footer
+$primary-color3: darken($bodyColor, 0.25%); // used for panels and some callouts
+$secondaryColor: darken($primary-color, 30%);
+$topbar-bg: #311208;
+$darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
+
+/* Start to customize Reverie */
+a {
+	color: $primary-color;
+	
+	&:hover {
+		color: $primary-color3;
+	}
+	
+	&:visited {
+		color: $primary-color;
+	};
+}
+
+button, .button {
+	background-color: $primary-color;
+	border-color: $secondary-color;
+}
+
+#masthead {
+	background-color: $primary-color;
+	/*
+	background-image: url('#{$imageDirectory}/headerBG.jpg');
+	background-position: center top;
+	background-repeat: repeat;
+	*/
+	border-bottom: 13px solid $primary-color;
+	color: $white;
+	//height:$topbar-height + 50px;
+    
+    h1, h2, h3, h4, h5, h6, a, p {
+        color:$white;
+    }
+    
+    .nav-bar {
+        background: $primary-color;
+        //margin-bottom: 0;
+        color: $maroon;
+        //font-weight: 500;
+    }
+	
+	.top-bar {
+		margin-bottom: 0;
+		
+		.name {
+			padding: 5px;
+			
+			h1 {
+				font-size: 3em;
+				font-family: quote($siteTitleFamily), sans-serif;
+			}
+		}
+	}
+    
+    .contain-to-grid {
+        box-shadow: 5px 5px 13px 1px rgba(14, 10, 8, 0.69);
+    }
+}
+
+#featuredSticky, section[role='document'] {
+	background-color: lighten(#3d3d3d, 25%);
+	// This yields a linear gradient spanning from top to bottom
+	@include background-image(linear-gradient(lighten(#3d3d3d, 25%), $white));
+}
+
+.site-content {
+	background-color: $white;
+	padding-top: 13px;
+	// margin-bottom: 13px;
+	// height: auto;
+
+	img.featured {
+		//border: 5px solid $white;
+		@include thumb(5px);
+	}
+
+	#content {
+		header {
+			margin-bottom: 25px;
+		}
+		
+		article {
+			footer {
+				line-height: $paragraph-aside-line-height / 2;
+				padding-top: 13px;
+				font-size: emCalc($em-base - 3);
+				
+				.panel {
+					padding: unquote(($paragraph-aside-line-height / 2) + "em");
+				}
+			}
+		}
+	}
+}
+
+li {
+	a.th {
+		img {
+			// margin-bottom: -5px;
+		}
+	}
+}
+
+#colophon {
+	background: $lightGrey;
+	border-top: 1px solid $darkEdge;
+	color: lighten($black, 30%);
+	padding: 25px 0;
+	
+	h1, h2, h3, h4, h5, h6, a, p {
+		color: lighten($black, 30%);
+	}
+}
+
+footer {	
+    aside {
+        ul {
+            li {
+                list-style-type: none;
+            }
+        }
+        
+        table #wp-calendar{
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .widget {
+            padding: 13px;
+        }
+    }
+	
+	&.entry-meta {
+		background: none;
+		border: none;
+		
+		.panel {
+			padding: .75em;
+		}
+		
+		.vcard {
+			margin:0;
+			padding:3px;
+		}
+	}
+}
+
+// Original SCSS starts here...
+// add some extra style to row to beautify custom background image
+header.row,
+.container.row,
+.row.full-width {
+	background-color: rgba(255,255,255,0.9);
+}
+
+// adjusting header
+h4.subheader {
+	margin-top: -1em;
+}
+
+// add new pagination class for WordPress, Sass is amazingly fast
+.page-numbers { @include pagination; }
+
+// customizing pagination for WordPress using Foundation mixins, this is not beautiful I know
+.page-numbers li {
+	span:hover a,
+	span a:focus {
+		background: $pagination-link-active-bg;
+	}
+	span.current {
+		background: $pagination-link-current-background;
+		padding: $pagination-link-pad;
+		color: $pagination-link-current-font-color;
+		font-weight: $pagination-link-current-font-weight;
+		cursor: $pagination-link-current-cursor;
+	}
+}
+
+// add some basic comment styles
+ol.commentlist {
+	margin-left: 0;
+	margin-top: 2em;
+	li {
+		list-style: none;
+		margin-bottom: 2em;
+	}
+		.comment-author img {
+			border-radius: 50%;
+			float: left;
+			margin: 0 1em 0 0;
+		}
+		.author-meta {
+			display: inline-block;
+		}
+			cite.fn {
+				@extend h4;
+				margin-right: 0.5em;
+			}
+		section.comment {
+			@include panel(white, 20px);
+		}
+			a.comment-reply-link {
+				float: right;
+				position: relative;
+				bottom: 1em;
+			}
+}
+
+// add some extra margin to ul
+ul {
+	margin-#{$default-float}: $list-side-margin;
+}
+
+// add some margin for embeds in post
+figure {
+	margin-bottom: $paragraph-margin-bottom;
+}
+
+// adjust search button on top-bar
+input.prefix.button {
+	line-height: 1;
+}
+
+// adjust search button on sideba
+#sidebar input.prefix.button {
+	line-height: 0.7;
+}
+
+// Add Class for Images
+img.alignright {
+	float: right;
+	margin: 0 0 18px 18px;
+}
+	
+img.alignleft {
+	float: left;
+	margin: 0 18px 18px 0;
+}
+
+img.aligncenter {
+	display: block;
+	margin: 18px auto;
+	}
+
+// Add HTML5 Caption Class for Images
+figure.figure {
+	margin: 0 auto;
+	display: inline-block;
+	figcaption {
+		padding: 8px 10px;
+		color: gray;
+		margin-bottom: $paragraph-margin-bottom;
+	}
+}
+
+figure.alignright.figure {
+	float: right;
+	margin: 0 0 18px 18px;
+}
+
+figure.alignleft.figure {
+	float: left;
+	margin: 0 18px 18px 0;
+}
