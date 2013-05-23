@@ -14,146 +14,178 @@
 	<body>
 		<header id="masthead" class="fixed" role="banner">
 			<!-- Starting the Top-Bar -->
-			<nav class="top-bar" style="">
+			<nav class="top-bar">
 				<ul class="title-area">
-					<li class="name"><h1><a href="//www.profec.net/" title="www.ProfeC.net" rel="home">ProfeC.net</a></h1></li>
+					<li class="name"><h3><a href="//www.profec.net/" title="www.ProfeC.net" rel="home">ProfeC.net</a></h3></li>
+					<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 				</ul>
+				
+				<section class="top-bar-section">
+				<!-- Left Nav Section -->
+				<ul class="right">
+				<li class="divider"></li>
+				<li class="active"><a href="#">Main Item 1</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Main Item 2</a></li>
+				<li class="divider"></li>
+				<li class="has-dropdown"><a href="#">Main Item 3</a>
+
+				<ul class="dropdown">
+				<li class="has-dropdown"><a href="#">Dropdown Level 1a</a>
+
+				<ul class="dropdown">
+				<li><label>Dropdown Level 2 Label</label></li>
+				<li><a href="#">Dropdown Level 2a</a></li>
+				<li><a href="#">Dropdown Level 2b</a></li>
+				<li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+				<ul class="dropdown">
+				<li><label>Dropdown Level 3 Label</label></li>
+				<li><a href="#">Dropdown Level 3a</a></li>
+				<li><a href="#">Dropdown Level 3b</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Dropdown Level 3c</a></li>
+				</ul>
+				</li>
+				<li><a href="#">Dropdown Level 2d</a></li>
+				<li><a href="#">Dropdown Level 2e</a></li>
+				<li><a href="#">Dropdown Level 2f</a></li>
+				</ul>
+				</li>
+				<li><a href="#">Dropdown Level 1b</a></li>
+				<li><a href="#">Dropdown Level 1c</a></li>
+				<li class="divider"></li>
+				<li><a href="#">Dropdown Level 1d</a></li>
+				<li><a href="#">Dropdown Level 1e</a></li>
+				<li><a href="#">Dropdown Level 1f</a></li>
+				<li class="divider"></li>
+				<li><a href="#">See all &rarr;</a></li>
+				</ul>
+				</li>
+				<li class="divider"></li>
+				</ul>
+
+				<!-- Right Nav Section -->
+				<ul class="right">
+				<li class="divider hide-for-small"></li>
+				<li class="has-dropdown"><a href="#">Main Item 4</a>
+
+				<ul class="dropdown">
+				<li><label>Dropdown Level 1 Label</label></li>
+				<li class="has-dropdown"><a href="#" class="">Dropdown Level 1a</a>
+
+				<ul class="dropdown">
+				<li><a href="#">Dropdown Level 2a</a></li>
+				<li><a href="#">Dropdown Level 2b</a></li>
+				<li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+
+				<ul class="dropdown">
+				<li><a href="#">Dropdown Level 3a</a></li>
+				<li><a href="#">Dropdown Level 3b</a></li>
+				<li><a href="#">Dropdown Level 3c</a></li>
+				</ul>
+				</li>
+				<li><a href="#">Dropdown Level 2d</a></li>
+				<li><a href="#">Dropdown Level 2e</a></li>
+				<li><a href="#">Dropdown Level 2f</a></li>
+				</ul>
+				</li>
+				<li><a href="#">Dropdown Level 1b</a></li>
+				<li><a href="#">Dropdown Level 1c</a></li>
+				<li class="divider"></li>
+				<li><label>Dropdown Level 1 Label</label></li>
+				<li><a href="#">Dropdown Level 1d</a></li>
+				<li><a href="#">Dropdown Level 1e</a></li>
+				<li><a href="#">Dropdown Level 1f</a></li>
+				<li class="divider"></li>
+				<li><a href="#">See all &rarr;</a></li>
+				</ul>
+				</li>
+				<li class="divider show-for-small"></li>
+			</ul>
+				</section>
 			</nav>
 			<!-- End of Top-Bar -->
 		</header>
 		
-		<!-- Start the main container -->
-		  <div class="row" style="margin-top:50px">
-		    <div class="large-12 columns">
+		<section id="site-content" role="document">
 
-		    <!-- Desktop Slider -->
-		      <div class="hide-for-small">
-		        <div id="featured" data-orbit>
-		              <img src="http://placehold.it/1000x400&text=Slide Image 1" alt="slide image">
-		              <img src="http://placehold.it/1000x400&text=Slide Image 2" alt="slide image">
-		              <img src="http://placehold.it/1000x400&text=Slide Image 3" alt="slide image">
-		          </div>
-		        </div>
-		    <!-- End Desktop Slider -->
+			<div class="row">
+				<!-- Content -->
+				<div class="small-12 columns">
+					<div class="panel radius">
+						<div class="row">
+							<div class="large-4 columns">
+								<h4>About Me</h4><hr/>
+								<h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.</h5>
+							</div>
+							<div class="large-8 columns">
+								<p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<!-- <div class="row">
+				<div class="small-12 columns">
+					<div id="featured">
+						<img src="http://test.profec.net/wp-content/uploads/2013/03/2012-12-25-08-21-16.jpg" height="400" width="1000" alt="slide image" style="height:400px !important">
+					</div>
+				</div>
+			</div>
+			<br /> -->
+			<div class="row">
+				<div class="large-12 columns">
+					<div class="row">
+						<!-- Thumbnails -->
+						<div class="large-4 columns">
+							<img src="img/2006-09-29-15-14-15-624x415.jpg" width="624" height="415" alt="Photography">
+							<h6 class="panel">Photography</h6>
+						</div>
 
-		    <!-- Mobile Header -->
-		    <div class="row">
-		      <div class="small-12 show-for-small"><br>
-		        <img src="http://placehold.it/1000x600&text=For Small Screens" />
-		      </div>
-		    </div>
+						<div class="large-4 columns">
+							<img src="http://placehold.it/350x350&text=Selected Works" />
+							<h6 class="panel">Selected Works</h6>
+						</div>
 
-
-		  <!-- End Mobile Header -->
-		    </div>
-		  </div><br>
-
-		  <div class="row">
-		    <div class="large-12 columns">
-		      <div class="row">
-
-		    <!-- Thumbnails -->
-
-		        <div class="large-3 small-6 columns">
-		          <img src="http://placehold.it/250x250&text=Thumbnail" />
-		          <h6 class="panel">Description</h6>
-		        </div>
-
-		        <div class="large-3 small-6 columns">
-		          <img src="http://placehold.it/250x250&text=Thumbnail" />
-		          <h6 class="panel">Description</h6>
-		        </div>
-
-		        <div class="large-3 small-6 columns">
-		          <img src="http://placehold.it/250x250&text=Thumbnail" />
-		          <h6 class="panel">Description</h6>
-		        </div>
-
-		        <div class="large-3 small-6 columns">
-		          <img src="http://placehold.it/250x250&text=Thumbnail" />
-		          <h6 class="panel">Description</h6>
-		        </div>
-
-		    <!-- End Thumbnails -->
-
-		      </div>
-		    </div>
-		  </div>
-
-
-
-		  <div class="row">
-		    <div class="large-12 columns">
-		      <div class="row">
-
-		    <!-- Content -->
-
-		        <div class="large-8 columns">
-		          <div class="panel radius">
-
-		          <div class="row">
-		          <div class="large-6 small-6 columns">
-
-		            <h4>Header</h4><hr/>
-		            <h5 class="subheader">Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
-		            </h5>
-
-		          <div class="show-for-small" align="center">
-		            <a href="#" class="small radius button">Call To Action!</a><br>
-
-		            <a href="#" class="small radius button">Call To Action!</a>
-		          </div>
-
-		          </div>
-		          <div class="large-6 small-6 columns">
-
-		            <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.
-		          </p>
-		        </div>
-
-		        </div>
-		        </div>
-		        </div>
-
-		        <div class="large-4 columns hide-for-small">
-
-		          <h4>Get In Touch!</h4><hr/>
-
-		          <a href="#">
-		          <div class="panel radius callout" align="center">
-		            <strong>Call To Action!</strong>
-		          </div>
-		          </a>
-
-		          <a href="#">
-		          <div class="panel radius callout" align="center">
-		            <strong>Call To Action!</strong>
-		          </div>
-		          </a>
-
-		        </div>
-
-		    <!-- End Content -->
-
-		      </div>
-		    </div>
-		  </div>
-
-		    <!-- Footer -->
-
+						<div class="large-4 columns">
+							<img src="img/resume-writing.jpg" width="447" height="300" alt="Resume Writing">
+							<h6 class="panel">Resume</h6>
+						</div>
+						<!-- End Thumbnails -->
+					</div>
+				</div>
+			</div>
+			<footer id="site-content-footer">
+				<div class="row hide-for-small">
+					<div class="large-4 columns">
+						<h4>Get In Touch!</h4><hr/>
+						<p>GV number or something?</p>
+					</div>
+					<div class="large-8 columns">
+						<h4>On the web...</h4><hr/>
+						<p>something about Twitter, GitHub, AboutMe, etc.
+					</div>					
+				</div>
+			</footer>
+		</section>
+		
+		<!-- Footer -->
 		<footer id="colophon" role="contentinfo">
 			<div class="row">
 				<div class="small-6 columns">
 					<p>Content © 2013 G. L. Clark, II <small>aka: ProfeC</small>.</p>
 				</div>
 		        <div class="small-6 columns">
-		          <ul class="inline-list right">
-		            <li><a href="#">Link 1</a></li>
-		            <li><a href="#">Link 2</a></li>
-		            <li><a href="#">Link 3</a></li>
-		            <li><a href="#">Link 4</a></li>
-		          </ul>
+					<ul class="inline-list right">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Photos</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Selected Works</a></li>
+						<li><a href="#">Resume</a></li>
+					</ul>
 		        </div>
 			</div>
 		</footer>
@@ -172,14 +204,11 @@
 		<script src="js/foundation/foundation.placeholder.js"></script>
 		<script src="js/foundation/foundation.section.js"></script>
 		<script src="js/foundation/foundation.topbar.js"></script>
-		<script src="js/foundation/foundation.orbit.js"></script>
+		<!-- <script src="js/foundation/foundation.orbit.js"></script> -->
 
 		<script type="text/javascript">
 			$(document).foundation();
 			
-		    $(window).load(function() {
-		      $('#featured').orbit({ fluid: '2x1' });
-		    });
 		</script>
 	</body>
 </html>

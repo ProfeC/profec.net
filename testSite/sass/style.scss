@@ -15,11 +15,6 @@
 // Import Custom Fonts and set defaults
 @import "fonts";
 
-$header-font-family: quote($headerFamily), sans-serif;
-$body-font-family: quote($bodyFamily), sans-serif;
-
-// Comment out this import if you are customizing you imports below
-@import "foundation";
 
 $imageDirectory: unquote('/wp-content/themes/twentytwelve-profec/images');
 
@@ -39,8 +34,14 @@ $primary-color: #711100;
 $primary-color2: lighten($primary-color, 13%); // used in the footer
 $primary-color3: darken($bodyColor, 0.25%); // used for panels and some callouts
 $secondaryColor: darken($primary-color, 30%);
-$topbar-bg: #311208;
+//$topbar-bg: #311208;
 $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
+
+$header-font-family: quote($headerFamily), sans-serif;
+$body-font-family: quote($bodyFamily), sans-serif;
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
 
 /* Start to customize Reverie */
 a {
@@ -67,9 +68,10 @@ button, .button {
 	background-position: center top;
 	background-repeat: repeat;
 	*/
-	border-bottom: 13px solid $primary-color;
+	border-bottom: 5px solid $primary-color;
 	color: $white;
-	//height:$topbar-height + 50px;
+	// margin-bottom: $topbar-height + 60px;
+	box-shadow: -3px 5px 13px 1px rgba(14, 10, 8, 0.69);
     
     h1, h2, h3, h4, h5, h6, a, p {
         color:$white;
@@ -83,38 +85,34 @@ button, .button {
     }
 	
 	.top-bar {
-		margin-bottom: 0;
+		margin-bottom: 5px;
 		
 		.name {
 			padding: 5px;
 			
 			h1 {
-				font-size: 3em;
+				font-size: emCalc(45px);
 				font-family: quote($siteTitleFamily), sans-serif;
 			}
 		}
 	}
-    
-    .contain-to-grid {
-        box-shadow: 5px 5px 13px 1px rgba(14, 10, 8, 0.69);
-    }
 }
 
-#featuredSticky, section[role='document'] {
-	background-color: lighten(#3d3d3d, 25%);
-	// This yields a linear gradient spanning from top to bottom
-	@include background-image(linear-gradient(lighten(#3d3d3d, 25%), $white));
+section[role='document'] {
 }
 
-.site-content {
+#site-content {
 	background-color: $white;
-	padding-top: 13px;
+	// background-color: lighten(#3d3d3d, 50%);
+	// This yields a linear gradient spanning from top to bottom
+	@include background-image(linear-gradient(lighten(#3d3d3d, 45%), $white));
+	padding-top: $topbar-height - 5px;
 	// margin-bottom: 13px;
 	// height: auto;
 
 	img.featured {
 		//border: 5px solid $white;
-		@include thumb(5px);
+		@include thumb(5px); // adds a border around the featured image.
 	}
 
 	#content {
