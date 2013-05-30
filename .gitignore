@@ -15,3 +15,11 @@ test.profec.net/license.txt
 test.profec.net/quickstart.html
 test.profec.net/index.php
 test.profec.net/xmlrpc.php
+
+#ignore temp & tmp files
+tmp
+temp
+
+testSite/fonts/webicons-master
+testSite/fonts/social_*
+testSite/fonts/accessibility_*

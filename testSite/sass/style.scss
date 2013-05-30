@@ -1,8 +1,3 @@
-/* Welcome and glad you are using Reverie.
- * This is the main stylesheet loaded by default.
- * Edit the file and have fun.
- * http://themefortress.com/reverie */
-
 // Import Compass
 @import "compass";
 
@@ -33,9 +28,11 @@ $bodyColor: #c7c0a9;
 $primary-color: #711100;
 $primary-color2: lighten($primary-color, 13%); // used in the footer
 $primary-color3: darken($bodyColor, 0.25%); // used for panels and some callouts
-$secondaryColor: darken($primary-color, 30%);
-//$topbar-bg: #311208;
+$secondary-color: darken($primary-color, 30%);
 $darkEdge: rgba(#000, .2); // this is no longer valid and should be removed.
+//$topbar-bg: #311208;
+$topbar-bg: #311208;
+$topbar-height: 100px;
 
 $header-font-family: quote($headerFamily), sans-serif;
 $body-font-family: quote($bodyFamily), sans-serif;
@@ -86,15 +83,21 @@ button, .button {
 	
 	.top-bar {
 		margin-bottom: 5px;
+	}
 		
-		.name {
-			padding: 5px;
-			
-			h1 {
-				font-size: emCalc(45px);
-				font-family: quote($siteTitleFamily), sans-serif;
-			}
-		}
+	.name {
+		padding-left: 13px;
+		//padding-bottom: 13px;
+		font-size: emCalc(72px);
+		font-family: quote($siteTitleFamily), cursive;
+		//letter-spacing: emCalc(1.25px);
+		font-weight: normal;
+		font-style: italic;
+		@include single-text-shadow($secondary-color, 5px, 5px, 3px);
+		
+//		a {
+//			@include single-text-shadow($secondary-color, 3px, 5px, 2px);
+//		}
 	}
 }
 
@@ -131,6 +134,18 @@ section[role='document'] {
 				}
 			}
 		}
+	}
+}
+
+#promoThumbs {
+//	img {
+//		padding:3px;
+//		background-color: $primary-color;
+//	}
+	.socialLinks {
+		height: 200px;
+		width: 300px;
+		padding: 7px;
 	}
 }
 
@@ -187,6 +202,12 @@ footer {
 }
 
 // Original SCSS starts here...
+/* Welcome and glad you are using Reverie.
+ * This is the main stylesheet loaded by default.
+ * Edit the file and have fun.
+ * http://themefortress.com/reverie */
+
+/*
 // add some extra style to row to beautify custom background image
 header.row,
 .container.row,
@@ -303,3 +324,4 @@ figure.alignleft.figure {
 	float: left;
 	margin: 0 18px 18px 0;
 }
+*/
